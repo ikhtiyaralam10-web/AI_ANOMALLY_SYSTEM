@@ -33,7 +33,7 @@ export default function TelemetryDark() {
             <span className="material-symbols-outlined mr-3 text-[20px]">science</span>
             <span className="font-mono text-[11px] font-bold">Simulation Lab</span>
           </Link>
-          <a className="flex items-center px-3 py-3 font-medium text-on-surface-variant hover:bg-surface-variant/20 hover:text-primary transition-all active:scale-95 duration-100 group rounded" href="#">
+          <a className="flex items-center px-3 py-3 font-medium text-on-surface-variant hover:bg-surface-variant/20 hover:text-primary transition-all active:scale-95 duration-100 group rounded" href="/maintenance-hub">
             <span className="material-symbols-outlined mr-3 text-[20px]">build</span>
             <span className="font-mono text-[11px] font-bold">Maintenance Hub</span>
           </a>

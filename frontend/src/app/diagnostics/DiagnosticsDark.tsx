@@ -33,7 +33,7 @@ export default function DiagnosticsDark() {
             <span className="material-symbols-outlined">science</span>
             <span>Simulation Lab</span>
           </Link>
-          <a className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-[11px] font-bold hover:bg-surface-variant/20 hover:text-primary transition-all" href="#">
+          <a className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-[11px] font-bold hover:bg-surface-variant/20 hover:text-primary transition-all" href="/maintenance-hub">
             <span className="material-symbols-outlined">build</span>
             <span>Maintenance Hub</span>
           </a>

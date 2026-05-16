@@ -33,7 +33,7 @@ export default function DiagnosticsLight() {
             <span className="material-symbols-outlined mr-3">science</span>
             <span>Simulation Lab</span>
           </Link>
-          <a className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-[11px] font-bold hover:bg-surface-variant hover:text-on-surface transition-all" href="#">
+          <a className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-[11px] font-bold hover:bg-surface-variant hover:text-on-surface transition-all" href="/maintenance-hub">
             <span className="material-symbols-outlined mr-3">build</span>
             <span>Maintenance Hub</span>
           </a>
