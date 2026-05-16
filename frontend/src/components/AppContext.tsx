@@ -22,9 +22,13 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<Theme>("dark");
   const [isAbnormal, setIsAbnormal] = useState(false);
 
-  // Apply theme to body
+  // Apply theme to document element
   useEffect(() => {
-    document.body.className = theme;
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }, [theme]);
 
   return (
