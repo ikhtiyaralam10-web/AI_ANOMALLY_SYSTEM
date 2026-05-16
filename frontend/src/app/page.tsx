@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Link from "next/link";
 import { useAppContext } from "@/components/AppContext";
 
 export default function Home() {
@@ -184,10 +185,10 @@ export default function Home() {
                 ARES-1 leverages deep neural networks to process industrial telemetry in real-time, detecting micro-anomalies and preventing unplanned downtime before it impacts your bottom line.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="primary-button px-8 py-4 rounded-lg font-bold text-base flex items-center justify-center gap-2">
+                <Link href="/dashboard" className="primary-button px-8 py-4 rounded-lg font-bold text-base flex items-center justify-center gap-2">
                   Deploy ARES-1
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                </button>
+                </Link>
                 <button className="outline-button px-8 py-4 rounded-lg font-medium text-base flex items-center justify-center gap-2">
                   <span className="material-symbols-outlined text-sm">play_circle</span>
                   View Interactive Demo
