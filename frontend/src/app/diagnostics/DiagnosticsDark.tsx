@@ -29,10 +29,10 @@ export default function DiagnosticsDark() {
             <span className="material-symbols-outlined" style={{ fontVariationSettings: '"FILL" 1' }}>query_stats</span>
             <span>Diagnostics</span>
           </a>
-          <a className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-[11px] font-bold hover:bg-surface-variant/20 hover:text-primary transition-all" href="#">
+          <Link className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-[11px] font-bold hover:bg-surface-variant/20 hover:text-primary transition-all" href="/simulation-lab">
             <span className="material-symbols-outlined">science</span>
             <span>Simulation Lab</span>
-          </a>
+          </Link>
           <a className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-[11px] font-bold hover:bg-surface-variant/20 hover:text-primary transition-all" href="#">
             <span className="material-symbols-outlined">build</span>
             <span>Maintenance Hub</span>
