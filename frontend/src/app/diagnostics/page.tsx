@@ -1,10 +1,16 @@
 "use client";
+// Force recompile
 import React from "react";
 import { useAppContext } from "@/components/AppContext";
-import DiagnosticsDark from "@/stitch_components/DiagnosticsDark";
-import DiagnosticsLight from "@/stitch_components/DiagnosticsLight";
+import DiagnosticsDark from "@/app/diagnostics/DiagnosticsDark";
+import DiagnosticsLight from "@/app/diagnostics/DiagnosticsLight";
 
 export default function DiagnosticsPage() {
   const { theme } = useAppContext();
-  return theme === 'dark' ? <DiagnosticsDark /> : <DiagnosticsLight />;
+
+  if (theme === "dark") {
+    return <DiagnosticsDark />;
+  }
+
+  return <DiagnosticsLight />;
 }

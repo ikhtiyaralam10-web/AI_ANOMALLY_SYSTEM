@@ -38,13 +38,13 @@ export default function DashboardLight() {
             <span className="material-symbols-outlined">analytics</span>
             <span>Live Telemetry</span>
           </Link>
-          <a
+          <Link
             className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-xs hover:bg-surface-variant hover:text-on-surface transition-all"
-            href="#"
+            href="/diagnostics"
           >
             <span className="material-symbols-outlined">query_stats</span>
             <span>Diagnostics</span>
-          </a>
+          </Link>
           <a
             className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-xs hover:bg-surface-variant hover:text-on-surface transition-all"
             href="#"

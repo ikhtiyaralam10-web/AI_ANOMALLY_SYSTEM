@@ -25,10 +25,10 @@ export default function TelemetryDark() {
             <span className="material-symbols-outlined mr-3 text-[20px]" style={{ fontVariationSettings: '"FILL" 1' }}>analytics</span>
             <span className="font-mono text-[11px] font-bold">Live Telemetry</span>
           </Link>
-          <a className="flex items-center px-3 py-3 font-medium text-on-surface-variant hover:bg-surface-variant/20 hover:text-primary transition-all active:scale-95 duration-100 group rounded" href="#">
+          <Link className="flex items-center px-3 py-3 font-medium text-on-surface-variant hover:bg-surface-variant/20 hover:text-primary transition-all active:scale-95 duration-100 group rounded" href="/diagnostics">
             <span className="material-symbols-outlined mr-3 text-[20px]">query_stats</span>
             <span className="font-mono text-[11px] font-bold">Diagnostics</span>
-          </a>
+          </Link>
           <a className="flex items-center px-3 py-3 font-medium text-on-surface-variant hover:bg-surface-variant/20 hover:text-primary transition-all active:scale-95 duration-100 group rounded" href="#">
             <span className="material-symbols-outlined mr-3 text-[20px]">science</span>
             <span className="font-mono text-[11px] font-bold">Simulation Lab</span>
