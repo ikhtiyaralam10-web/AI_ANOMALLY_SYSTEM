@@ -31,13 +31,13 @@ export default function DashboardDark() {
             </span>
             <span>Overview</span>
           </a>
-          <a
+          <Link
             className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-xs hover:bg-surface-variant/20 hover:text-primary transition-all"
-            href="#"
+            href="/telemetry"
           >
             <span className="material-symbols-outlined">analytics</span>
             <span>Live Telemetry</span>
-          </a>
+          </Link>
           <a
             className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-xs hover:bg-surface-variant/20 hover:text-primary transition-all"
             href="#"
@@ -111,6 +111,11 @@ export default function DashboardDark() {
             <button className="bg-error-container/20 border border-error text-error font-mono text-xs font-bold px-4 py-2 rounded hover:bg-error-container/40 transition-colors">
               EMERGENCY SHUTDOWN
             </button>
+            <Link href="/">
+              <button className="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center pt-1">
+                <span className="material-symbols-outlined">home</span>
+              </button>
+            </Link>
             <button 
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center"

@@ -12,14 +12,14 @@ interface AppContextType {
 }
 
 const AppContext = createContext<AppContextType>({
-  theme: "dark",
+  theme: "light",
   setTheme: () => {},
   isAbnormal: false,
   setIsAbnormal: () => {}
 });
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
   const [isAbnormal, setIsAbnormal] = useState(false);
 
   // Apply theme to document element
