@@ -142,10 +142,21 @@ export default function DashboardLight() {
                 Anomaly Score
               </div>
               <div className="relative w-32 h-32 flex items-center justify-center">
-                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" fill="none" r="45" stroke="#dee3e4" strokeWidth="8"></circle>
+                <svg className="w-full h-full transform -rotate-90 overflow-visible" viewBox="0 0 100 100">
+                  <defs>
+                    <filter id="neonGlowLight-89" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="0.5" result="blur1" />
+                      <feGaussianBlur stdDeviation="1" result="blur2" />
+                      <feMerge>
+                        <feMergeNode in="blur2" />
+                        <feMergeNode in="blur1" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <circle cx="50" cy="50" fill="none" r="45" stroke="rgba(0,105,112,0.1)" strokeWidth="8"></circle>
                   <circle
-                    className="drop-shadow-[0_0_5px_rgba(0,105,112,0.2)]"
+                    filter="url(#neonGlowLight-89)"
                     cx="50"
                     cy="50"
                     fill="none"
@@ -154,9 +165,10 @@ export default function DashboardLight() {
                     strokeDasharray="283"
                     strokeDashoffset="31"
                     strokeWidth="8"
+                    strokeLinecap="round"
                   ></circle>
                 </svg>
-                <div className="absolute font-headline text-3xl font-bold text-primary glow-cyan">
+                <div className="absolute font-headline text-3xl font-bold" style={{ color: "#006970", textShadow: "0 0 4px rgba(0,105,112,0.3), 0 0 8px rgba(0,105,112,0.15)" }}>
                   89%
                 </div>
               </div>
@@ -166,10 +178,22 @@ export default function DashboardLight() {
                 Failure Probability
               </div>
               <div className="relative w-32 h-32 flex items-center justify-center">
-                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" fill="none" r="45" stroke="#dee3e4" strokeWidth="8"></circle>
+                <svg className="w-full h-full transform -rotate-90 overflow-visible" viewBox="0 0 100 100">
+                  <defs>
+                    <filter id="neonGlowRedLight-82" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="0.5" result="blur1"/>
+                      <feGaussianBlur stdDeviation="1" result="blur2"/>
+                      <feMerge>
+                        <feMergeNode in="blur2" />
+                        <feMergeNode in="blur1" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <circle cx="50" cy="50" fill="none" r="45" stroke="rgba(186,26,26,0.1)" strokeWidth="8"></circle>
                   <circle
-                    className="drop-shadow-[0_0_5px_rgba(186,26,26,0.2)] animate-pulse"
+                    filter="url(#neonGlowRedLight-82)"
+                    className="animate-pulse"
                     cx="50"
                     cy="50"
                     fill="none"
@@ -178,9 +202,10 @@ export default function DashboardLight() {
                     strokeDasharray="283"
                     strokeDashoffset="50"
                     strokeWidth="8"
+                    strokeLinecap="round"
                   ></circle>
                 </svg>
-                <div className="absolute font-headline text-3xl font-bold text-error glow-crimson animate-pulse">
+                <div className="absolute font-headline text-3xl font-bold animate-pulse" style={{ color: "#ba1a1a", textShadow: "0 0 4px rgba(186,26,26,0.3), 0 0 8px rgba(186,26,26,0.15)" }}>
                   82%
                 </div>
               </div>

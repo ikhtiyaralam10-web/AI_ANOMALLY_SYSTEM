@@ -11,7 +11,7 @@ export default function TelemetryDark() {
       {/* Side Navigation Shell */}
       <aside className="h-screen w-[15%] fixed left-0 top-0 bg-surface-container-lowest/30 backdrop-blur-xl border-r border-outline-variant/10 flex flex-col py-gutter px-4 z-50">
         <div className="mb-10 mt-4">
-          <Link href="/" className="font-headline text-3xl font-bold text-primary-container tracking-tighter block">
+          <Link href="/" className="font-headline text-3xl font-bold text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] tracking-tighter block">
             CORE<div>INSIGHT</div>
           </Link>
           <p className="font-mono text-[11px] font-bold text-on-surface-variant mt-1">V.4.0 ONLINE</p>
@@ -21,7 +21,7 @@ export default function TelemetryDark() {
             <span className="material-symbols-outlined mr-3 text-[20px]">dashboard</span>
             <span className="font-mono text-[11px] font-bold">Overview</span>
           </Link>
-          <Link className="flex items-center px-3 py-3 text-primary-container bg-primary-container/10 border-l-2 border-primary-container font-bold active:scale-95 duration-100 group rounded" href="/telemetry">
+          <Link className="flex items-center px-3 py-3 text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] bg-[#64ffda]/10 border-l-2 border-[#64ffda] font-bold active:scale-95 duration-100 group rounded" href="/telemetry">
             <span className="material-symbols-outlined mr-3 text-[20px]" style={{ fontVariationSettings: '"FILL" 1' }}>analytics</span>
             <span className="font-mono text-[11px] font-bold">Live Telemetry</span>
           </Link>
@@ -39,7 +39,7 @@ export default function TelemetryDark() {
           </a>
         </nav>
         <div className="mt-auto pt-6 border-t border-outline-variant/10">
-          <button className="w-full py-3 bg-primary-container text-on-primary-fixed font-mono text-[11px] font-bold hover:bg-primary-fixed transition-all active:scale-95 mb-6 rounded">
+          <button className="w-full py-3 bg-[#64ffda] text-on-primary-fixed font-mono text-[11px] font-bold hover:bg-primary-fixed transition-all active:scale-95 mb-6 rounded">
             GENERATE REPORT
           </button>
           <div className="space-y-1">
@@ -67,9 +67,9 @@ export default function TelemetryDark() {
       {/* Top AppBar Shell */}
       <header className="fixed top-0 left-[15%] right-0 h-16 bg-surface/10 backdrop-blur-md border-b border-outline-variant/5 flex items-center justify-between px-6 z-40">
         <div className="flex items-center gap-8 flex-1">
-          <h2 className="font-headline text-2xl font-bold text-primary-container">INSIGHT MONITOR</h2>
+          <h2 className="font-headline text-2xl font-bold text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">INSIGHT MONITOR</h2>
           <div className="flex gap-6 flex-1 justify-center">
-            <a className="font-mono text-[11px] font-bold uppercase text-primary-container border-b-2 border-primary-container pb-1 transition-all duration-200 ease-in-out" href="#">Real-time</a>
+            <a className="font-mono text-[11px] font-bold uppercase text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] border-b-2 border-[#64ffda] pb-1 transition-all duration-200 ease-in-out" href="#">Real-time</a>
             <a className="font-mono text-[11px] font-bold uppercase text-on-surface-variant hover:text-primary transition-all duration-200 ease-in-out" href="#">History</a>
             <a className="font-mono text-[11px] font-bold uppercase text-on-surface-variant hover:text-primary transition-all duration-200 ease-in-out" href="#">Nodes</a>
           </div>
@@ -99,8 +99,8 @@ export default function TelemetryDark() {
         {/* Top Action Bar */}
         <div className="glass-panel flex items-center justify-between px-6 py-3 rounded-t-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
           <div className="flex items-center gap-4">
-            <div className="px-3 py-1 bg-primary-container/10 border border-primary-container/30 rounded">
-              <span className="font-mono text-[12px] text-primary-container tracking-widest font-bold">ASSET ID: ST-049</span>
+            <div className="px-3 py-1 bg-[#64ffda]/10 border border-[#64ffda]/30 rounded">
+              <span className="font-mono text-[12px] text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] tracking-widest font-bold">ASSET ID: ST-049</span>
             </div>
             <span className="text-on-surface-variant font-medium">|</span>
             <span className="font-headline text-lg text-on-surface font-semibold">Motor Array Beta</span>
@@ -110,7 +110,7 @@ export default function TelemetryDark() {
               <button className="px-3 py-1 font-mono text-[10px] text-on-surface-variant hover:text-primary font-bold">1 MIN</button>
               <button className="px-3 py-1 font-mono text-[10px] text-on-surface-variant hover:text-primary font-bold">5 MIN</button>
               <button className="px-3 py-1 font-mono text-[10px] text-on-surface-variant hover:text-primary font-bold">1 HOUR</button>
-              <button className="px-3 py-1 font-mono text-[10px] text-primary-container bg-primary-container/20 rounded-sm font-bold">LIVE</button>
+              <button className="px-3 py-1 font-mono text-[10px] text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] bg-[#64ffda]/20 rounded-sm font-bold">LIVE</button>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse"></span>
@@ -159,7 +159,7 @@ export default function TelemetryDark() {
           <div className="glass-panel flex-1 min-h-0 p-4 flex flex-col relative group rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
             <div className="flex justify-between items-start mb-2">
               <span className="font-mono text-[11px] font-bold text-on-surface-variant">MOTOR RPM</span>
-              <span className="font-mono text-[12px] text-primary-container font-bold">STABLE NOMINAL</span>
+              <span className="font-mono text-[12px] text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] font-bold">STABLE NOMINAL</span>
             </div>
             <div className="w-full flex-1 min-h-0 overflow-hidden">
               <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 120">

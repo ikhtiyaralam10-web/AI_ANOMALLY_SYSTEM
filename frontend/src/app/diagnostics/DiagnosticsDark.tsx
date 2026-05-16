@@ -12,7 +12,7 @@ export default function DiagnosticsDark() {
       <nav className="h-screen w-[15%] fixed left-0 top-0 bg-surface-container-low/40 backdrop-blur-xl border-r border-outline-variant/10 flex flex-col py-gutter px-4 z-50">
         <div className="mb-8 mt-4">
           <Link href="/">
-            <h1 className="font-headline text-3xl font-bold text-primary-container tracking-tighter uppercase">CORE<div>INSIGHT</div></h1>
+            <h1 className="font-headline text-3xl font-bold text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] tracking-tighter uppercase">CORE<div>INSIGHT</div></h1>
           </Link>
           <p className="font-mono text-[11px] text-on-surface-variant mt-1 font-bold opacity-70">V.4.0 ONLINE</p>
         </div>
@@ -25,7 +25,7 @@ export default function DiagnosticsDark() {
             <span className="material-symbols-outlined">analytics</span>
             <span>Live Telemetry</span>
           </Link>
-          <a className="flex items-center space-x-3 p-3 rounded text-primary-container bg-primary-container/10 border-l-[3px] border-[#00f0ff] shadow-[inset_4px_0_15px_-4px_rgba(0,240,255,0.4)] font-bold font-mono text-[11px] scale-95 duration-100" href="/diagnostics">
+          <a className="flex items-center space-x-3 p-3 rounded text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] bg-[#64ffda]/10 border-l-[3px] border-[#00f0ff] shadow-[inset_4px_0_15px_-4px_rgba(0,240,255,0.4)] font-bold font-mono text-[11px] scale-95 duration-100" href="/diagnostics">
             <span className="material-symbols-outlined" style={{ fontVariationSettings: '"FILL" 1' }}>query_stats</span>
             <span>Diagnostics</span>
           </a>
@@ -39,7 +39,7 @@ export default function DiagnosticsDark() {
           </a>
         </div>
         <div className="mt-auto pt-4 border-t border-outline-variant/10">
-          <button className="w-full mb-4 bg-primary-container text-on-primary-fixed font-mono text-[11px] font-bold py-3 rounded hover:bg-primary transition-colors shadow-[0_0_20px_rgba(0,240,255,0.2)]">
+          <button className="w-full mb-4 bg-[#64ffda] text-on-primary-fixed font-mono text-[11px] font-bold py-3 rounded hover:bg-primary transition-colors shadow-[0_0_20px_rgba(0,240,255,0.2)]">
             GENERATE REPORT
           </button>
           <div className="flex flex-col space-y-2">
@@ -53,10 +53,10 @@ export default function DiagnosticsDark() {
             </a>
           </div>
           <div className="mt-4 flex items-center space-x-2 text-[12px] font-mono text-on-surface-variant">
-            <div className="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,240,255,0.8)]"></div>
+            <div className="w-2 h-2 rounded-full bg-[#64ffda] animate-pulse shadow-[0_0_8px_rgba(0,240,255,0.8)]"></div>
             <div className="flex flex-col">
               <span className="text-[10px] opacity-70 uppercase tracking-tighter">System Status:</span>
-              <span className="text-[10px] text-primary-container font-bold uppercase tracking-tighter">Online</span>
+              <span className="text-[10px] text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] font-bold uppercase tracking-tighter">Online</span>
             </div>
           </div>
         </div>
@@ -66,12 +66,12 @@ export default function DiagnosticsDark() {
       <header className="fixed top-0 left-[15%] h-16 bg-surface-container/30 backdrop-blur-xl border-b border-outline-variant/20 flex items-center justify-between px-6 z-40 transition-all duration-200" style={{ width: "calc(100% - 15%)" }}>
         {/* Branding Left */}
         <div className="flex flex-col">
-          <h2 className="font-mono text-[18px] font-bold text-primary-container tracking-widest uppercase">Insight Monitor</h2>
+          <h2 className="font-mono text-[18px] font-bold text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] tracking-widest uppercase">Insight Monitor</h2>
         </div>
 
         {/* Navigation Center */}
         <nav className="hidden md:flex space-x-8 font-mono text-[11px] absolute left-1/2 -translate-x-1/2 items-center h-full">
-          <a className="text-primary-container border-b-2 border-primary-container h-full flex items-center px-1 font-bold uppercase" href="#">Real-time</a>
+          <a className="text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] border-b-2 border-[#64ffda] h-full flex items-center px-1 font-bold uppercase" href="#">Real-time</a>
           <a className="text-on-surface-variant hover:text-primary transition-colors h-full flex items-center px-1 uppercase font-bold" href="#">History</a>
           <a className="text-on-surface-variant hover:text-primary transition-colors h-full flex items-center px-1 uppercase font-bold" href="#">Nodes</a>
         </nav>
@@ -107,7 +107,7 @@ export default function DiagnosticsDark() {
         {/* Left Pane: Root Cause Radar (30%) */}
         <aside className="w-[30%] min-w-[320px] flex flex-col gap-4 overflow-y-auto pb-8 px-6 pt-6 border-r border-outline-variant/10">
           <h2 className="font-headline text-2xl text-on-surface flex items-center gap-2 mb-2">
-            <span className="material-symbols-outlined text-primary-container">radar</span>
+            <span className="material-symbols-outlined text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">radar</span>
             Root Cause Radar
           </h2>
 
@@ -169,17 +169,17 @@ export default function DiagnosticsDark() {
         </aside>
 
         {/* Right Pane: AI Diagnostic Terminal (70%) */}
-        <section className="flex-1 glass-panel flex flex-col overflow-hidden relative border-t border-primary-container/20 border-l border-l-outline-variant/10 rounded-none" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)" }}>
+        <section className="flex-1 glass-panel flex flex-col overflow-hidden relative border-t border-[#64ffda]/20 border-l border-l-outline-variant/10 rounded-none" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)" }}>
           {/* Terminal Header */}
           <div className="px-6 py-4 border-b border-white/5 bg-black/20 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-primary-container">terminal</span>
+              <span className="material-symbols-outlined text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">terminal</span>
               <h2 className="font-body text-[16px] font-semibold text-on-surface">AI Diagnostic Terminal</h2>
             </div>
             <div className="flex gap-2">
               <span className="w-2 h-2 rounded-full bg-outline-variant"></span>
               <span className="w-2 h-2 rounded-full bg-outline-variant"></span>
-              <span className="w-2 h-2 rounded-full bg-primary-container shadow-[inset_0_0_10px_rgba(0,240,255,0.2)]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#64ffda] shadow-[inset_0_0_10px_rgba(0,240,255,0.2)]"></span>
             </div>
           </div>
 
@@ -195,12 +195,12 @@ export default function DiagnosticsDark() {
             {/* AI Assistant Bubble */}
             <div className="flex justify-start w-full">
               <div className="flex gap-4 max-w-[90%] w-full">
-                <div className="w-8 h-8 rounded bg-primary-container/10 border border-primary-container/30 flex items-center justify-center shrink-0 mt-1">
-                  <span className="material-symbols-outlined text-primary-container text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>smart_toy</span>
+                <div className="w-8 h-8 rounded bg-[#64ffda]/10 border border-[#64ffda]/30 flex items-center justify-center shrink-0 mt-1">
+                  <span className="material-symbols-outlined text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>smart_toy</span>
                 </div>
                 <div className="flex flex-col gap-3 w-full">
                   <div className="text-on-surface font-body text-[14px] pt-1">
-                    The anomaly is driven by a 3.2x deviation in <code className="font-mono text-[12px] text-primary-container bg-primary-container/10 px-1 rounded border border-primary-container/20">vibration_rms</code>.
+                    The anomaly is driven by a 3.2x deviation in <code className="font-mono text-[12px] text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] bg-[#64ffda]/10 px-1 rounded border border-[#64ffda]/20">vibration_rms</code>.
                   </div>
 
                   {/* JSON Code Block */}
@@ -209,7 +209,7 @@ export default function DiagnosticsDark() {
                       <div className="flex gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-error/80"></div>
                         <div className="w-2.5 h-2.5 rounded-full bg-secondary-container/80"></div>
-                        <div className="w-2.5 h-2.5 rounded-full bg-primary-container/80"></div>
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#64ffda]/80"></div>
                       </div>
                       <span className="font-mono text-[12px] text-outline-variant">payload.json</span>
                       <button className="text-outline hover:text-on-surface transition-colors">
@@ -231,7 +231,7 @@ export default function DiagnosticsDark() {
 }`}</code></pre>
                     </div>
                   </div>
-                  <button className="flex items-center gap-1 font-mono text-[11px] font-bold text-outline hover:text-primary-container transition-colors w-fit uppercase">
+                  <button className="flex items-center gap-1 font-mono text-[11px] font-bold text-outline hover:text-[#64ffda] hover:drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] transition-colors w-fit uppercase">
                     <span className="material-symbols-outlined text-sm">chevron_right</span>
                     Show Raw Telemetry JSON
                   </button>
@@ -244,7 +244,7 @@ export default function DiagnosticsDark() {
           <div className="p-4 bg-black/40 border-t border-white/5 backdrop-blur-md shrink-0">
             {/* Context Chips */}
             <div className="flex gap-2 mb-3 overflow-x-auto pb-1">
-              <button className="shrink-0 px-3 py-1.5 rounded-full border border-primary-container/30 bg-primary-container/5 text-primary-container hover:bg-primary-container/10 font-mono text-[11px] font-bold uppercase transition-colors flex items-center gap-1">
+              <button className="shrink-0 px-3 py-1.5 rounded-full border border-[#64ffda]/30 bg-[#64ffda]/5 text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] hover:bg-[#64ffda]/10 font-mono text-[11px] font-bold uppercase transition-colors flex items-center gap-1">
                 <span className="material-symbols-outlined text-[14px]">auto_awesome</span>
                 Analyze Valve Blockage
               </button>
@@ -257,11 +257,11 @@ export default function DiagnosticsDark() {
             {/* Input Bar */}
             <div className="relative flex items-center">
               <input 
-                className="w-full bg-[#0A0E17]/80 border border-outline-variant/30 rounded-lg pl-4 pr-12 py-3 font-body text-[14px] text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/50 transition-all shadow-inner" 
+                className="w-full bg-[#0A0E17]/80 border border-outline-variant/30 rounded-lg pl-4 pr-12 py-3 font-body text-[14px] text-on-surface focus:outline-none focus:border-[#64ffda] focus:ring-1 focus:ring-[#64ffda]/50 transition-all shadow-inner" 
                 placeholder="Query the RCA, run predictions, or ask for raw JSON..." 
                 type="text"
               />
-              <button className="absolute right-2 w-8 h-8 rounded bg-primary-container text-black flex items-center justify-center hover:bg-primary transition-colors shadow-[0_0_10px_rgba(0,240,255,0.4)]">
+              <button className="absolute right-2 w-8 h-8 rounded bg-[#64ffda] text-black flex items-center justify-center hover:bg-primary transition-colors shadow-[0_0_10px_rgba(0,240,255,0.4)]">
                 <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: '"FILL" 1' }}>send</span>
               </button>
             </div>

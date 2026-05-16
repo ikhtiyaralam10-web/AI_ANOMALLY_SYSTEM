@@ -11,7 +11,7 @@ export default function DashboardDark() {
       {/* SideNavBar */}
       <nav className="h-screen w-[15%] fixed left-0 top-0 bg-surface-container-lowest/30 backdrop-blur-xl border-r border-outline-variant/10 flex flex-col py-gutter px-4 z-50">
         <div className="mb-8 mt-4">
-          <Link href="/" className="font-headline text-3xl font-bold text-primary-container tracking-tighter block">
+          <Link href="/" className="font-headline text-3xl font-bold text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] tracking-tighter block">
             CORE<div>INSIGHT</div>
           </Link>
           <div className="font-mono text-xs text-on-surface-variant mt-1 opacity-70">
@@ -20,7 +20,7 @@ export default function DashboardDark() {
         </div>
         <div className="flex-grow space-y-2">
           <a
-            className="flex items-center space-x-3 p-3 rounded text-primary-container bg-primary-container/10 border-l-2 border-primary-container font-bold font-mono text-xs scale-95 duration-100"
+            className="flex items-center space-x-3 p-3 rounded text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] bg-[#64ffda]/10 border-l-2 border-[#64ffda] font-bold font-mono text-xs scale-95 duration-100"
             href="#"
           >
             <span
@@ -61,7 +61,7 @@ export default function DashboardDark() {
           </a>
         </div>
         <div className="mt-auto pt-4 border-t border-outline-variant/10">
-          <button className="w-full mb-4 bg-primary-container text-on-primary-fixed font-mono text-xs py-3 rounded hover:bg-primary-fixed transition-colors">
+          <button className="w-full mb-4 bg-[#64ffda]/10 border border-[#64ffda]/50 text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] font-mono text-xs py-3 rounded hover:bg-[#64ffda]/20 transition-colors font-bold tracking-widest shadow-[0_0_8px_rgba(100,255,218,0.15)]">
             GENERATE REPORT
           </button>
           <div className="flex flex-col space-y-2">
@@ -81,7 +81,7 @@ export default function DashboardDark() {
             </a>
           </div>
           <div className="mt-4 flex items-center space-x-2 font-mono text-xs text-on-surface-variant">
-            <div className="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,240,255,0.8)]"></div>
+            <div className="w-2 h-2 rounded-full bg-[#64ffda] animate-pulse shadow-[0_0_3px_rgba(100,255,218,0.5)]"></div>
             <span>System Status: Online</span>
           </div>
         </div>
@@ -92,12 +92,12 @@ export default function DashboardDark() {
         {/* TopAppBar */}
         <header className="fixed top-0 left-[15%] right-0 h-16 z-40 bg-surface/10 backdrop-blur-md border-b border-outline-variant/5 flex items-center justify-between px-4 transition-all duration-200 ease-in-out">
           <div className="flex items-center min-w-[240px]">
-            <div className="font-headline text-2xl font-bold text-primary-container">
+            <div className="font-headline text-2xl font-bold text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">
               INSIGHT MONITOR
             </div>
           </div>
           <nav className="hidden md:flex flex-grow justify-center space-x-6 font-mono text-xs font-bold uppercase">
-            <a className="text-primary-container border-b-2 border-primary-container pb-1" href="#">
+            <a className="text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] border-b-2 border-[#64ffda] pb-1" href="#">
               Real-time
             </a>
             <a className="text-on-surface-variant hover:text-primary transition-colors" href="#">
@@ -138,14 +138,25 @@ export default function DashboardDark() {
           {/* Gauges Row */}
           <div className="flex gap-1 h-[25%]">
             <div className="glass-panel flex-1 rounded-xl p-6 flex flex-col items-center justify-center relative bg-glow-cyan overflow-hidden" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
-              <div className="font-mono text-xs text-primary-container mb-4 opacity-80 tracking-widest uppercase font-bold">
+              <div className="font-mono text-xs text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] mb-4 opacity-80 tracking-widest uppercase font-bold">
                 Anomaly Score
               </div>
               <div className="relative w-32 h-32 flex items-center justify-center">
-                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" fill="none" r="45" stroke="rgba(255,255,255,0.1)" strokeWidth="8"></circle>
+                <svg className="w-full h-full transform -rotate-90 overflow-visible" viewBox="0 0 100 100">
+                  <defs>
+                    <filter id="neonGlow-89" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="0.5" result="blur1" />
+                      <feGaussianBlur stdDeviation="1.5" result="blur2" />
+                      <feMerge>
+                        <feMergeNode in="blur2" />
+                        <feMergeNode in="blur1" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <circle cx="50" cy="50" fill="none" r="45" stroke="rgba(0,240,255,0.15)" strokeWidth="8"></circle>
                   <circle
-                    className="drop-shadow-[0_0_10px_rgba(0,240,255,0.8)]"
+                    filter="url(#neonGlow-89)"
                     cx="50"
                     cy="50"
                     fill="none"
@@ -154,9 +165,10 @@ export default function DashboardDark() {
                     strokeDasharray="283"
                     strokeDashoffset="31"
                     strokeWidth="8"
+                    strokeLinecap="round"
                   ></circle>
                 </svg>
-                <div className="absolute font-headline text-3xl font-bold text-primary-container glow-cyan">
+                <div className="absolute font-headline text-3xl font-bold" style={{ color: "#00f0ff", textShadow: "0 0 5px rgba(0,240,255,0.5), 0 0 10px rgba(0,240,255,0.3)" }}>
                   89%
                 </div>
               </div>
@@ -166,10 +178,22 @@ export default function DashboardDark() {
                 Failure Probability
               </div>
               <div className="relative w-32 h-32 flex items-center justify-center">
-                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" fill="none" r="45" stroke="rgba(255,255,255,0.1)" strokeWidth="8"></circle>
+                <svg className="w-full h-full transform -rotate-90 overflow-visible" viewBox="0 0 100 100">
+                  <defs>
+                    <filter id="neonGlowRed-82" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="0.5" result="blur1" />
+                      <feGaussianBlur stdDeviation="1.5" result="blur2" />
+                      <feMerge>
+                        <feMergeNode in="blur2" />
+                        <feMergeNode in="blur1" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <circle cx="50" cy="50" fill="none" r="45" stroke="rgba(255,180,171,0.15)" strokeWidth="8"></circle>
                   <circle
-                    className="drop-shadow-[0_0_10px_rgba(255,180,171,0.8)] animate-pulse"
+                    filter="url(#neonGlowRed-82)"
+                    className="animate-pulse"
                     cx="50"
                     cy="50"
                     fill="none"
@@ -178,9 +202,10 @@ export default function DashboardDark() {
                     strokeDasharray="283"
                     strokeDashoffset="50"
                     strokeWidth="8"
+                    strokeLinecap="round"
                   ></circle>
                 </svg>
-                <div className="absolute font-headline text-3xl font-bold text-error glow-crimson animate-pulse">
+                <div className="absolute font-headline text-3xl font-bold animate-pulse" style={{ color: "#ffb4ab", textShadow: "0 0 5px rgba(255,180,171,0.5), 0 0 10px rgba(255,180,171,0.3)" }}>
                   82%
                 </div>
               </div>
@@ -225,10 +250,10 @@ export default function DashboardDark() {
             <div className="glass-panel rounded-xl p-4 flex flex-col justify-between" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
               <div className="flex justify-between items-start">
                 <span className="font-mono text-[11px] font-bold text-on-surface-variant uppercase">Motor Current</span>
-                <span className="px-2 py-1 bg-primary-container/10 text-primary-container font-mono text-xs rounded border border-primary-container/30">NOM</span>
+                <span className="px-2 py-1 bg-[#64ffda]/10 text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] font-mono text-xs rounded border border-[#64ffda]/50">NOM</span>
               </div>
               <div>
-                <div className="font-mono text-lg font-medium text-primary-container">
+                <div className="font-mono text-lg font-medium text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">
                   42.1 <span className="text-xs text-on-surface-variant">A</span>
                 </div>
                 <div className="h-8 mt-2 w-full bg-surface-container-low rounded relative overflow-hidden">
@@ -245,10 +270,10 @@ export default function DashboardDark() {
             <div className="glass-panel rounded-xl p-4 flex flex-col justify-between" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
               <div className="flex justify-between items-start">
                 <span className="font-mono text-[11px] font-bold text-on-surface-variant uppercase">RPM</span>
-                <span className="px-2 py-1 bg-primary-container/10 text-primary-container font-mono text-xs rounded border border-primary-container/30">NOM</span>
+                <span className="px-2 py-1 bg-[#64ffda]/10 text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] font-mono text-xs rounded border border-[#64ffda]/50">NOM</span>
               </div>
               <div>
-                <div className="font-mono text-lg font-medium text-primary-container">
+                <div className="font-mono text-lg font-medium text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">
                   1750 <span className="text-xs text-on-surface-variant">rpm</span>
                 </div>
                 <div className="h-8 mt-2 w-full bg-surface-container-low rounded relative overflow-hidden">
@@ -279,7 +304,7 @@ export default function DashboardDark() {
             <div className="glass-panel rounded-xl p-4 flex flex-col" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
               <div className="font-mono text-[11px] font-bold text-on-surface-variant uppercase mb-3">SYSTEM OVERRIDE / SIMULATION</div>
               <div className="flex flex-col gap-2 flex-grow justify-center">
-                <button className="w-full py-2 border border-primary-container/40 text-primary-container font-mono font-bold rounded hover:bg-primary-container/10 transition-all text-[10px]">
+                <button className="w-full py-2 border border-[#64ffda]/40 text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] font-mono font-bold rounded hover:bg-[#64ffda]/10 transition-all text-[10px]">
                   NORMAL
                 </button>
                 <button className="w-full py-2 bg-error/20 border border-error text-error font-mono font-bold rounded shadow-[0_0_15px_rgba(255,180,171,0.4)] animate-pulse hover:bg-error/30 transition-all text-[10px]">
@@ -301,7 +326,7 @@ export default function DashboardDark() {
                 <div className="border-r border-white"></div><div className="border-r border-white"></div><div className="border-r border-white"></div><div className="border-r border-white"></div><div className="border-r border-white"></div><div></div>
               </div>
               {/* Safe Band */}
-              <div className="absolute top-[40%] bottom-[20%] left-0 right-0 bg-primary-container/5 border-y border-primary-container/20"></div>
+              <div className="absolute top-[40%] bottom-[20%] left-0 right-0 bg-[#64ffda]/5 border-y border-[#64ffda]/20"></div>
               {/* Spike Area */}
               <div className="absolute top-0 bottom-[60%] left-[70%] right-[10%] bg-error/10 border-b border-error/30"></div>
               {/* Line */}
@@ -353,7 +378,7 @@ export default function DashboardDark() {
           </div>
           {/* Simulation Lab */}
           <div className="glass-panel flex-[35%] rounded-xl p-6" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
-            <div className="font-mono text-[11px] font-bold text-primary-container mb-4 flex items-center space-x-2 uppercase">
+            <div className="font-mono text-[11px] font-bold text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] mb-4 flex items-center space-x-2 uppercase">
               <span className="material-symbols-outlined text-sm">tune</span>
               <span>Simulate Parameters</span>
             </div>
@@ -361,9 +386,9 @@ export default function DashboardDark() {
               <div>
                 <div className="flex justify-between font-mono text-xs mb-2">
                   <span className="text-on-surface-variant">vibration_rms</span>
-                  <span className="text-primary-container">14.2 mm/s</span>
+                  <span className="text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">14.2 mm/s</span>
                 </div>
-                <input className="w-full accent-primary-container h-1 bg-surface-container-high rounded appearance-none focus:outline-none" max="20" min="0" type="range" defaultValue="14.2" />
+                <input className="w-full accent-[#64ffda] h-1 bg-surface-container-high rounded appearance-none focus:outline-none" max="20" min="0" type="range" defaultValue="14.2" />
               </div>
               <div>
                 <div className="flex justify-between font-mono text-xs mb-2">

@@ -12,7 +12,7 @@ export default function SimulationLabDark() {
       <nav className="h-screen w-[15%] fixed left-0 top-0 bg-surface-container-low/40 backdrop-blur-xl border-r border-outline-variant/10 flex flex-col py-gutter px-4 z-50">
         <div className="mb-8 mt-4">
           <Link href="/">
-            <h1 className="font-headline text-3xl font-bold text-primary-container tracking-tighter uppercase">CORE<div>INSIGHT</div></h1>
+            <h1 className="font-headline text-3xl font-bold text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] tracking-tighter uppercase">CORE<div>INSIGHT</div></h1>
           </Link>
           <p className="font-mono text-[11px] text-on-surface-variant mt-1 font-bold opacity-70">V.4.0 ONLINE</p>
         </div>
@@ -29,7 +29,7 @@ export default function SimulationLabDark() {
             <span className="material-symbols-outlined">query_stats</span>
             <span>Diagnostics</span>
           </Link>
-          <a className="flex items-center space-x-3 p-3 rounded text-primary-container bg-primary-container/10 border-l-[3px] border-[#00f0ff] shadow-[inset_4px_0_15px_-4px_rgba(0,240,255,0.4)] font-bold font-mono text-[11px] scale-95 duration-100" href="/simulation-lab">
+          <a className="flex items-center space-x-3 p-3 rounded text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] bg-[#64ffda]/10 border-l-[3px] border-[#00f0ff] shadow-[inset_4px_0_15px_-4px_rgba(0,240,255,0.4)] font-bold font-mono text-[11px] scale-95 duration-100" href="/simulation-lab">
             <span className="material-symbols-outlined" style={{ fontVariationSettings: '"FILL" 1' }}>science</span>
             <span>Simulation Lab</span>
           </a>
@@ -39,7 +39,7 @@ export default function SimulationLabDark() {
           </a>
         </div>
         <div className="mt-auto pt-4 border-t border-outline-variant/10">
-          <button className="w-full mb-4 bg-primary-container text-on-primary-fixed font-mono text-[11px] font-bold py-3 rounded hover:bg-primary transition-colors shadow-[0_0_20px_rgba(0,240,255,0.2)]">
+          <button className="w-full mb-4 bg-[#64ffda] text-on-primary-fixed font-mono text-[11px] font-bold py-3 rounded hover:bg-primary transition-colors shadow-[0_0_20px_rgba(0,240,255,0.2)]">
             GENERATE REPORT
           </button>
           <div className="flex flex-col space-y-2">
@@ -53,10 +53,10 @@ export default function SimulationLabDark() {
             </a>
           </div>
           <div className="mt-4 flex items-center space-x-2 text-[12px] font-mono text-on-surface-variant">
-            <div className="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,240,255,0.8)]"></div>
+            <div className="w-2 h-2 rounded-full bg-[#64ffda] animate-pulse shadow-[0_0_8px_rgba(0,240,255,0.8)]"></div>
             <div className="flex flex-col">
               <span className="text-[10px] opacity-70 uppercase tracking-tighter">System Status:</span>
-              <span className="text-[10px] text-primary-container font-bold uppercase tracking-tighter">Online</span>
+              <span className="text-[10px] text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] font-bold uppercase tracking-tighter">Online</span>
             </div>
           </div>
         </div>
@@ -66,12 +66,12 @@ export default function SimulationLabDark() {
       <header className="fixed top-0 left-[15%] h-16 bg-surface-container/30 backdrop-blur-xl border-b border-outline-variant/20 flex items-center justify-between px-6 z-40 transition-all duration-200" style={{ width: "calc(100% - 15%)" }}>
         {/* Branding Left */}
         <div className="flex flex-col">
-          <h2 className="font-mono text-[18px] font-bold text-primary-container tracking-widest uppercase">Insight Monitor</h2>
+          <h2 className="font-mono text-[18px] font-bold text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] tracking-widest uppercase">Insight Monitor</h2>
         </div>
 
         {/* Navigation Center */}
         <nav className="hidden md:flex space-x-8 font-mono text-[11px] absolute left-1/2 -translate-x-1/2 items-center h-full">
-          <a className="text-primary-container border-b-2 border-primary-container h-full flex items-center px-1 font-bold uppercase" href="#">Real-time</a>
+          <a className="text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] border-b-2 border-[#64ffda] h-full flex items-center px-1 font-bold uppercase" href="#">Real-time</a>
           <a className="text-on-surface-variant hover:text-primary transition-colors h-full flex items-center px-1 uppercase font-bold" href="#">History</a>
           <a className="text-on-surface-variant hover:text-primary transition-colors h-full flex items-center px-1 uppercase font-bold" href="#">Nodes</a>
         </nav>
@@ -109,7 +109,7 @@ export default function SimulationLabDark() {
             {/* PARAMETER CONFIGURATION PANEL */}
             <section className="col-span-12 lg:col-span-4 glass-panel p-6 flex flex-col space-y-6 rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
               <div>
-                <h2 className="font-mono text-[11px] font-bold text-primary-container border-l-2 border-primary-container pl-3 mb-2 uppercase tracking-widest">Parameter Configuration</h2>
+                <h2 className="font-mono text-[11px] font-bold text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] border-l-2 border-[#64ffda] pl-3 mb-2 uppercase tracking-widest">Parameter Configuration</h2>
                 <p className="text-on-surface-variant font-body text-[14px]">Adjust system inputs to simulate hardware response profiles.</p>
               </div>
 
@@ -117,7 +117,7 @@ export default function SimulationLabDark() {
               <div className="space-y-3">
                 <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Scenario Presets</label>
                 <div className="flex flex-wrap gap-2">
-                  <button className="bg-primary-container/20 text-primary-container border border-primary-container/40 px-3 py-1.5 rounded font-mono text-[11px] hover:bg-primary-container/30 transition-all font-bold">MAX STRESS TEST</button>
+                  <button className="bg-[#64ffda]/20 text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] border border-[#64ffda]/40 px-3 py-1.5 rounded font-mono text-[11px] hover:bg-[#64ffda]/30 transition-all font-bold">MAX STRESS TEST</button>
                   <button className="bg-white/5 text-on-surface-variant border border-white/10 px-3 py-1.5 rounded font-mono text-[11px] hover:bg-white/10 font-bold">GRADUAL WEAR</button>
                   <button className="bg-white/5 text-on-surface-variant border border-white/10 px-3 py-1.5 rounded font-mono text-[11px] hover:bg-white/10 font-bold">OPTIMAL EFFICIENCY</button>
                 </div>
@@ -128,34 +128,34 @@ export default function SimulationLabDark() {
                 <div className="space-y-2">
                   <div className="flex justify-between font-mono text-[10px] font-bold uppercase tracking-widest">
                     <span className="text-on-surface">Vibration RMS</span>
-                    <span className="text-primary-container">8.4 / <span className="opacity-60 text-on-surface-variant">12.0 mm/s</span></span>
+                    <span className="text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">8.4 / <span className="opacity-60 text-on-surface-variant">12.0 mm/s</span></span>
                   </div>
-                  <input className="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer accent-primary-container rounded" max="20" min="0" type="range" defaultValue="8" />
+                  <input className="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer accent-[#64ffda] rounded" max="20" min="0" type="range" defaultValue="8" />
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between font-mono text-[10px] font-bold uppercase tracking-widest">
                     <span className="text-on-surface">Bearing Temperature</span>
-                    <span className="text-primary-container">68.2 / <span className="opacity-60 text-on-surface-variant">95.0 °C</span></span>
+                    <span className="text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">68.2 / <span className="opacity-60 text-on-surface-variant">95.0 °C</span></span>
                   </div>
-                  <input className="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer accent-primary-container rounded" max="150" min="0" type="range" defaultValue="68" />
+                  <input className="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer accent-[#64ffda] rounded" max="150" min="0" type="range" defaultValue="68" />
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between font-mono text-[10px] font-bold uppercase tracking-widest">
                     <span className="text-on-surface">Inlet Pressure</span>
-                    <span className="text-primary-container">14.2 / <span className="opacity-60 text-on-surface-variant">18.0 BAR</span></span>
+                    <span className="text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">14.2 / <span className="opacity-60 text-on-surface-variant">18.0 BAR</span></span>
                   </div>
-                  <input className="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer accent-primary-container rounded" max="30" min="0" type="range" defaultValue="14" />
+                  <input className="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer accent-[#64ffda] rounded" max="30" min="0" type="range" defaultValue="14" />
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between font-mono text-[10px] font-bold uppercase tracking-widest">
                     <span className="text-on-surface">Flow Rate</span>
-                    <span className="text-primary-container">850.0 / <span className="opacity-60 text-on-surface-variant">1200.0 L/M</span></span>
+                    <span className="text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">850.0 / <span className="opacity-60 text-on-surface-variant">1200.0 L/M</span></span>
                   </div>
-                  <input className="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer accent-primary-container rounded" max="2000" min="0" type="range" defaultValue="850" />
+                  <input className="w-full h-1 bg-surface-container-highest appearance-none cursor-pointer accent-[#64ffda] rounded" max="2000" min="0" type="range" defaultValue="850" />
                 </div>
               </div>
 
-              <button className="w-full bg-primary-container text-[#002022] py-4 font-mono text-[11px] font-bold tracking-[0.2em] shadow-[0_0_20px_rgba(0,240,255,0.3)] shadow-[inset_0_0_10px_rgba(0,240,255,0.4)] hover:brightness-110 active:scale-[0.98] transition-all relative overflow-hidden group rounded">
+              <button className="w-full bg-[#64ffda] text-[#002022] py-4 font-mono text-[11px] font-bold tracking-[0.2em] shadow-[0_0_20px_rgba(0,240,255,0.3)] shadow-[inset_0_0_10px_rgba(0,240,255,0.4)] hover:brightness-110 active:scale-[0.98] transition-all relative overflow-hidden group rounded">
                 RUN SIMULATION
                 <span className="absolute inset-0 bg-white/20 animate-pulse opacity-0 group-hover:opacity-100"></span>
               </button>
@@ -167,11 +167,11 @@ export default function SimulationLabDark() {
               <div className="glass-panel p-6 min-h-[400px] flex flex-col rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
                 <div className="flex justify-between items-start mb-6">
                   <div>
-                    <h2 className="font-mono text-[11px] font-bold text-primary-container border-l-2 border-primary-container pl-3 uppercase tracking-widest">Simulated Projection</h2>
+                    <h2 className="font-mono text-[11px] font-bold text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] border-l-2 border-[#64ffda] pl-3 uppercase tracking-widest">Simulated Projection</h2>
                     <p className="text-on-surface-variant text-[12px] mt-1 font-body">Predicted Operational Lifecycle (T-Minus Failure)</p>
                   </div>
                   <div className="text-right">
-                    <span className="font-headline text-3xl font-bold text-primary-container">14,204 HRS</span>
+                    <span className="font-headline text-3xl font-bold text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">14,204 HRS</span>
                     <p className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Estimated Remaining Uptime</p>
                   </div>
                 </div>
@@ -215,15 +215,15 @@ export default function SimulationLabDark() {
                   <div className="flex gap-6">
                     <div>
                       <p className="font-mono text-[9px] text-on-surface-variant font-bold uppercase tracking-widest">Model Confidence</p>
-                      <p className="font-mono text-[12px] text-primary-container font-bold">98.2%</p>
+                      <p className="font-mono text-[12px] text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] font-bold">98.2%</p>
                     </div>
                     <div>
                       <p className="font-mono text-[9px] text-on-surface-variant font-bold uppercase tracking-widest">Latency</p>
-                      <p className="font-mono text-[12px] text-primary-container font-bold">12ms</p>
+                      <p className="font-mono text-[12px] text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] font-bold">12ms</p>
                     </div>
                   </div>
                   <div className="flex gap-2 items-center">
-                    <span className="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_5px_#00f0ff]"></span>
+                    <span className="w-2 h-2 rounded-full bg-[#64ffda] shadow-[0_0_5px_#00f0ff]"></span>
                     <span className="w-2 h-2 rounded-full bg-white/20"></span>
                     <span className="w-2 h-2 rounded-full bg-white/20"></span>
                   </div>
@@ -274,7 +274,7 @@ export default function SimulationLabDark() {
                     <p className="font-mono text-[11px] font-bold text-error uppercase tracking-widest">Anomaly Detected In Simulation</p>
                     <p className="text-on-surface-variant font-body text-[14px] mt-1 px-4">Configuration 4-C leads to resonant oscillation in bearing housing. Failure likely within 48 hours of deployment.</p>
                   </div>
-                  <button className="text-primary-container font-mono text-[11px] font-bold hover:underline tracking-widest uppercase">View Failure Report</button>
+                  <button className="text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] font-mono text-[11px] font-bold hover:underline tracking-widest uppercase">View Failure Report</button>
                 </div>
               </div>
             </div>
@@ -284,7 +284,7 @@ export default function SimulationLabDark() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="glass-panel p-4 flex items-center gap-4 rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
               <div className="h-10 w-10 bg-[#00f0ff]/10 rounded flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary-container">memory</span>
+                <span className="material-symbols-outlined text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">memory</span>
               </div>
               <div>
                 <p className="font-mono text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Sim Engine Load</p>
@@ -293,7 +293,7 @@ export default function SimulationLabDark() {
             </div>
             <div className="glass-panel p-4 flex items-center gap-4 rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
               <div className="h-10 w-10 bg-[#00f0ff]/10 rounded flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary-container">cloud_done</span>
+                <span className="material-symbols-outlined text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">cloud_done</span>
               </div>
               <div>
                 <p className="font-mono text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Cloud Sync</p>
@@ -302,7 +302,7 @@ export default function SimulationLabDark() {
             </div>
             <div className="glass-panel p-4 flex items-center gap-4 rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
               <div className="h-10 w-10 bg-[#00f0ff]/10 rounded flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary-container">history</span>
+                <span className="material-symbols-outlined text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)]">history</span>
               </div>
               <div>
                 <p className="font-mono text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Previous Iteration</p>
