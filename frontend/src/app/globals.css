@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0d1515;
+  --color-foreground: #dce4e5;
+  
+  --color-surface: #0d1515;
+  --color-surface-dim: #0d1515;
+  --color-surface-bright: #333b3b;
+  --color-surface-container-lowest: #080f10;
+  --color-surface-container-low: #151d1e;
+  --color-surface-container: #192122;
+  --color-surface-container-high: #232b2c;
+  --color-surface-container-highest: #2e3637;
+  --color-on-surface: #dce4e5;
+  --color-on-surface-variant: #b9cacb;
+  --color-inverse-surface: #dce4e5;
+  --color-inverse-on-surface: #2a3233;
+  --color-outline: #849495;
+  --color-outline-variant: #3b494b;
+  --color-surface-tint: #00dbe9;
+  
+  --color-primary: #dbfcff;
+  --color-on-primary: #00363a;
+  --color-primary-container: #00f0ff;
+  --color-on-primary-container: #006970;
+  --color-inverse-primary: #006970;
+  --color-primary-fixed: #7df4ff;
+  --color-primary-fixed-dim: #00dbe9;
+  --color-on-primary-fixed: #002022;
+  --color-on-primary-fixed-variant: #004f54;
+  
+  --color-secondary: #ffdb9d;
+  --color-on-secondary: #412d00;
+  --color-secondary-container: #feb700;
+  --color-on-secondary-container: #6b4b00;
+  --color-secondary-fixed: #ffdea8;
+  --color-secondary-fixed-dim: #ffba20;
+  --color-on-secondary-fixed: #271900;
+  --color-on-secondary-fixed-variant: #5e4200;
+  
+  --color-tertiary: #fff5de;
+  --color-on-tertiary: #3b2f00;
+  --color-tertiary-container: #fed639;
+  --color-on-tertiary-container: #715d00;
+  --color-tertiary-fixed: #ffe179;
+  --color-tertiary-fixed-dim: #eac324;
+  --color-on-tertiary-fixed: #231b00;
+  --color-on-tertiary-fixed-variant: #554500;
+  
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+  --radius-default: 0.25rem;
+  
+  --spacing-base: 4px;
+  --spacing-gutter: 16px;
+  --spacing-margin-desktop: 32px;
+  --spacing-margin-mobile: 16px;
+  --spacing-panel-gap: 1px;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}

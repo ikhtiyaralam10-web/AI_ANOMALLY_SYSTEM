@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARES-1 | Predictive Anomaly Detection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Roboto+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-primary-container": "#007128",
+                "on-tertiary-fixed-variant": "#434751",
+                "on-secondary-fixed": "#002113",
+                "tertiary-fixed": "#dfe2ef",
+                "secondary-container": "#00a572",
+                "primary-fixed-dim": "#00e55b",
+                "inverse-on-surface": "#233143",
+                "surface-dim": "#051424",
+                "on-tertiary-fixed": "#181b25",
+                "surface": "#051424",
+                "tertiary-container": "#daddea",
+                "surface-container": "#122131",
+                "error": "#ffb4ab",
+                "secondary-fixed-dim": "#4edea3",
+                "on-secondary-fixed-variant": "#005236",
+                "secondary-fixed": "#6ffbbe",
+                "on-surface-variant": "#b9ccb5",
+                "on-error": "#690005",
+                "background": "#051424",
+                "surface-tint": "#065f46",
+                "on-tertiary": "#2c303a",
+                "on-primary-fixed-variant": "#00531b",
+                "on-tertiary-container": "#5d616c",
+                "on-primary-fixed": "#002107",
+                "outline-variant": "#3b4b3a",
+                "tertiary": "#faf9ff",
+                "primary-container": "#065f46",
+                "on-background": "#d4e4fa",
+                "surface-container-high": "#1c2b3c",
+                "error-container": "#93000a",
+                "surface-variant": "#273647",
+                "surface-container-lowest": "#010f1f",
+                "surface-container-highest": "#273647",
+                "surface-container-low": "#0d1c2d",
+                "on-primary": "#ffffff",
+                "secondary": "#10b981",
+                "outline": "#849581",
+                "on-secondary-container": "#00311f",
+                "surface-bright": "#2c3a4c",
+                "on-error-container": "#ffdad6",
+                "primary-fixed": "#34d399",
+                "on-surface": "#d4e4fa",
+                "inverse-surface": "#d4e4fa",
+                "inverse-primary": "#006e27",
+                "tertiary-fixed-dim": "#c3c6d3",
+                "on-secondary": "#003824",
+                "primary": "#34d399"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "base": "4px",
+                "xl": "32px",
+                "md": "16px",
+                "xs": "4px",
+                "3xl": "64px",
+                "2xl": "48px",
+                "lg": "24px",
+                "sm": "8px"
+        },
+        "fontFamily": {
+                "label-caps": [
+                        "JetBrains Mono"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "data-mono": [
+                        "JetBrains Mono"
+                ],
+                "display-lg": [
+                        "Space Grotesk"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "headline-sm": [
+                        "Space Grotesk"
+                ],
+                "headline-lg": [
+                        "Space Grotesk"
+                ]
+        },
+        "fontSize": {
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "data-mono": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-sm": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-headline { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .glass-panel {
+            background-color: rgba(18, 33, 49, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid #3b4b3a;
+        }
+        
+        .bento-card {
+            background-color: #122131;
+            border: 1px solid #3b4b3a;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .bento-card:hover {
+            background-color: #1c2b3c;
+            border-color: #065f46;
+        }
+
+        .primary-button {
+            background-color: #065f46;
+            color: #ffffff;
+            transition: all 0.2s;
+        }
+        .primary-button:hover {
+            background-color: #047857;
+        }
+        
+        .outline-button {
+            background-color: transparent;
+            border: 1px solid #849581;
+            color: #d4e4fa;
+            transition: all 0.2s;
+        }
+        .outline-button:hover {
+            border-color: #065f46;
+            background-color: rgba(6, 95, 70, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen selection:bg-[#065f46] selection:text-white"><canvas class="fixed inset-0 pointer-events-none z-[-1] opacity-40" id="particle-canvas"></canvas>
+<!-- Floating Navigation -->
+<header class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+<div class="max-w-7xl mx-auto glass-panel rounded-full px-6 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style='font-variation-settings: "FILL" 1;'>hexagon</span>
+<span class="font-headline font-bold text-xl tracking-tight text-on-surface">CoreInsight</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">Features</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">Technology</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">Case Studies</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">Pricing</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden md:block outline-button px-4 py-2 rounded-md text-sm font-medium">Log In</button>
+<button class="primary-button px-5 py-2 rounded-md text-sm font-bold shadow-lg shadow-[#065f46]/20">Request Demo</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-40 pb-20 overflow-hidden">
+<!-- Background Grid -->
+<div class="absolute inset-0 pointer-events-none opacity-20 hidden" style="background-image: radial-gradient(#3b4b3a 1px, transparent 1px); background-size: 32px 32px;"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-mono mb-8">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        SYSTEM V4.2 LIVE
+                    </div>
+<h1 class="font-headline text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tighter mb-6 text-on-surface">
+                        Predict Failures Before They <span class="text-primary">Happen.</span>
+</h1>
+<p class="text-lg md:text-xl text-on-surface-variant mb-10 max-w-xl font-body">
+                        ARES-1 leverages deep neural networks to process industrial telemetry in real-time, detecting micro-anomalies and preventing unplanned downtime before it impacts your bottom line.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="primary-button px-8 py-4 rounded-lg font-bold text-base flex items-center justify-center gap-2">
+                            Deploy ARES-1
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="outline-button px-8 py-4 rounded-lg font-medium text-base flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">play_circle</span>
+                            View Interactive Demo
+                        </button>
+</div>
+</div>
+<!-- 3D Mockup Container -->
+<div class="relative perspective-1000 lg:h-[600px] flex items-center justify-center">
+<div class="relative w-full max-w-lg aspect-[4/3] rounded-xl border border-outline-variant bg-surface-container overflow-hidden shadow-2xl shadow-[#065f46]/10" style="transform: rotateY(-15deg) rotateX(10deg); transform-style: preserve-3d;">
+<!-- Mockup Header -->
+<div class="h-10 bg-surface-container-highest border-b border-outline-variant flex items-center px-4 gap-2">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-outline"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-outline"></div>
+</div>
+<span class="text-xs font-mono text-on-surface-variant ml-2">ares_mission_control.exe</span>
+</div>
+<!-- Mockup Body -->
+<div class="p-6 grid grid-cols-2 gap-4 h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik00MCAwaC0xdjQwTTAgNDBWMzloNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI3MjcyYSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjYSkiLz48L3N2Zz4=')]">
+<div class="col-span-2 bg-surface border border-outline-variant rounded p-4 flex flex-col justify-between">
+<div class="flex justify-between items-center mb-4">
+<span class="text-xs font-mono text-on-surface-variant uppercase">Global Telemetry Flow</span>
+<span class="text-xs font-mono text-secondary">99.98% UPTIME</span>
+</div>
+<div class="h-16 w-full flex items-end gap-1">
+<div class="w-full bg-[#065f46]/40 h-[30%] rounded-t-sm border-t border-[#065f46] relative"><div class="absolute -top-1 right-0 w-2 h-2 bg-[#065f46] rounded-full"></div></div>
+<div class="w-full bg-[#065f46]/40 h-[45%] rounded-t-sm border-t border-[#065f46] relative"><div class="absolute -top-1 right-0 w-2 h-2 bg-[#065f46] rounded-full"></div></div>
+<div class="w-full bg-[#065f46]/40 h-[60%] rounded-t-sm border-t border-[#065f46] relative"><div class="absolute -top-1 right-0 w-2 h-2 bg-[#065f46] rounded-full"></div></div>
+<div class="w-full bg-[#065f46]/40 h-[50%] rounded-t-sm border-t border-[#065f46] relative"><div class="absolute -top-1 right-0 w-2 h-2 bg-[#065f46] rounded-full"></div></div>
+<div class="w-full bg-error/20 h-[85%] rounded-t-sm border-t border-error relative"><div class="absolute -top-1 right-0 w-2 h-2 bg-error rounded-full animate-ping"></div></div>
+<div class="w-full bg-[#065f46]/40 h-[40%] rounded-t-sm border-t border-[#065f46] relative"><div class="absolute -top-1 right-0 w-2 h-2 bg-[#065f46] rounded-full"></div></div>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded p-4">
+<span class="text-[10px] font-mono text-on-surface-variant block mb-2">THERMAL LOAD</span>
+<div class="text-2xl font-mono text-on-surface">428.5<span class="text-sm text-on-surface-variant">K</span></div>
+</div>
+<div class="bg-surface border border-outline-variant rounded p-4">
+<span class="text-[10px] font-mono text-on-surface-variant block mb-2">PREDICTED FAILURE</span>
+<div class="text-sm font-mono text-error">TURBINE B - 14H 22M</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof -->
+<section class="border-y border-outline-variant/30 bg-surface-container-lowest/50 py-10">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<p class="text-sm font-mono text-on-surface-variant mb-6 uppercase tracking-wider">Securing assets for industry leaders</p>
+<div class="flex flex-wrap justify-center gap-12 md:gap-24 opacity-60 grayscale">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-3xl">token</span><span class="font-headline font-bold text-xl">Nexus Corp</span></div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-3xl">all_inclusive</span><span class="font-headline font-bold text-xl">Aether Heavy</span></div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-3xl">change_history</span><span class="font-headline font-bold text-xl">Tri-State</span></div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-3xl">blur_on</span><span class="font-headline font-bold text-xl">Omni</span></div>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="py-24 max-w-7xl mx-auto px-6">
+<div class="mb-16">
+<h2 class="font-headline text-3xl md:text-4xl font-bold mb-4 text-on-surface">Industrial Intelligence. <br/><span class="text-primary">Without the noise.</span></h2>
+<p class="text-on-surface-variant max-w-2xl font-body">Our architecture is designed for precision. No bloated dashboards—just actionable telemetry and predictive insights.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[280px]">
+<!-- Feature 1: Real-Time Telemetry (Wide) -->
+<div class="bento-card col-span-1 md:col-span-2 p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-[#065f46]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative z-10 w-full">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">monitor_heart</span>
+<div class="flex gap-1">
+<div class="w-1 h-4 bg-secondary rounded-full animate-pulse"></div>
+<div class="w-1 h-6 bg-secondary rounded-full animate-pulse" style="animation-delay: 150ms"></div>
+<div class="w-1 h-3 bg-secondary rounded-full animate-pulse" style="animation-delay: 300ms"></div>
+</div>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2">Real-Time Telemetry Processing</h3>
+<p class="text-sm text-on-surface-variant">Ingest millions of data points per second with zero latency. Monitor thermal, kinetic, and fluid dynamics instantly.</p>
+</div>
+</div>
+<!-- Feature 2: Predictive Maintenance -->
+<div class="bento-card col-span-1 p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="relative z-10 h-full flex flex-col">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">build_circle</span>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2 mt-auto">Predictive Maintenance</h3>
+<p class="text-sm text-on-surface-variant">Schedule repairs exactly when needed, maximizing component lifespan.</p>
+</div>
+</div>
+<!-- Feature 3: AI Root Cause Analysis -->
+<div class="bento-card col-span-1 p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="relative z-10 h-full flex flex-col">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">psychology</span>
+<div class="bg-surface-container-lowest border border-outline-variant p-3 rounded text-xs font-mono text-on-surface-variant mb-4 flex-grow">
+<span class="text-primary">&gt;</span> analyzing_vector_data...<br/>
+<span class="text-secondary">[SUCCESS]</span> anomaly_isolated<br/>
+<span class="text-on-surface">Source: Valve X-99</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2">AI Root Cause Analysis</h3>
+</div>
+</div>
+<!-- Feature 4: What-If Simulation Engine (Wide) -->
+<div class="bento-card col-span-1 md:col-span-2 p-8 flex flex-col md:flex-row gap-8 items-center relative overflow-hidden group">
+<div class="flex-1 relative z-10">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">science</span>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2">What-If Simulation Engine</h3>
+<p class="text-sm text-on-surface-variant">Test operating parameters in a digital twin environment before applying them to physical hardware.</p>
+</div>
+<div class="flex-1 w-full bg-surface-container-lowest border border-outline-variant p-4 rounded-lg flex flex-col gap-4">
+<div>
+<div class="flex justify-between text-xs font-mono text-on-surface-variant mb-1"><span class="">PRESSURE</span><span class="">85%</span></div>
+<div class="w-full bg-surface h-2 rounded-full overflow-hidden border border-outline-variant/50"><div class="bg-[#065f46] w-[85%] h-full"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-mono text-on-surface-variant mb-1"><span class="">TEMP_DELTA</span><span class="">42%</span></div>
+<div class="w-full bg-surface h-2 rounded-full overflow-hidden border border-outline-variant/50"><div class="bg-[#065f46] w-[42%] h-full"></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 border-t border-outline-variant/30">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<h2 class="font-headline text-4xl md:text-5xl font-bold mb-6 text-on-surface tracking-tight">Ready to eliminate unplanned downtime?</h2>
+<p class="text-lg text-on-surface-variant mb-10 font-body">Join the industry leaders trusting ARES-1 to secure their operational continuity.</p>
+<button class="primary-button px-10 py-5 rounded-lg font-bold text-lg inline-flex items-center justify-center gap-3 shadow-lg shadow-[#065f46]/20 hover:scale-[1.02] transition-transform">
+                    Start Your Free Pilot
+                    <span class="material-symbols-outlined">rocket_launch</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-outline-variant/30 bg-surface-container-lowest py-12">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">hexagon</span>
+<span class="font-headline font-bold tracking-tight text-on-surface-variant">CoreInsight</span>
+</div>
+<nav class="flex gap-6 text-sm text-on-surface-variant"><a class="hover:text-primary transition-colors" href="#">About</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms</a></nav>
+<div class="flex gap-4 text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">language</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-xl">share</span></a>
+</div>
+</div>
+</footer>
+<script>
+(function() {
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    const mouse = { x: -1000, y: -1000 };
+    const dotSpacing = 32;
+    const glowRadius = 150;
+    const brandColor = '#00e55b'; // primary-fixed-dim
+
+    function init() {
+        resize();
+        window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+        animate();
+    }
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        createParticles();
+    }
+
+    function createParticles() {
+        particles = [];
+        for (let x = 0; x < width; x += dotSpacing) {
+            for (let y = 0; y < height; y += dotSpacing) {
+                particles.push({ x, y });
+            }
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        particles.forEach(p => {
+            const dx = mouse.x - p.x;
+            const dy = mouse.y - p.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            
+            if (dist < glowRadius) {
+                const opacity = 1 - (dist / glowRadius);
+                ctx.fillStyle = brandColor;
+                ctx.globalAlpha = opacity;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+                ctx.fill();
+            } else {
+                ctx.fillStyle = '#3b4b3a'; // outline-variant color
+                ctx.globalAlpha = 0.3;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    init();
+})();
+</script></body></html>

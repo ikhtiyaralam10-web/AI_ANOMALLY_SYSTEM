@@ -1,0 +1,363 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Industrial AI Monitoring Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#080f10",
+                        "secondary": "#ffdb9d",
+                        "on-primary-fixed-variant": "#004f54",
+                        "surface-tint": "#00dbe9",
+                        "inverse-surface": "#dce4e5",
+                        "on-secondary-container": "#6b4b00",
+                        "on-primary": "#00363a",
+                        "surface-bright": "#333b3b",
+                        "on-secondary-fixed-variant": "#5e4200",
+                        "surface-container-high": "#232b2c",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#554500",
+                        "inverse-on-surface": "#2a3233",
+                        "surface-container-highest": "#2e3637",
+                        "background": "#0d1515",
+                        "on-secondary": "#412d00",
+                        "tertiary-fixed-dim": "#eac324",
+                        "on-tertiary-fixed": "#231b00",
+                        "outline-variant": "#3b494b",
+                        "inverse-primary": "#006970",
+                        "surface-dim": "#0d1515",
+                        "secondary-fixed": "#ffdea8",
+                        "secondary-fixed-dim": "#ffba20",
+                        "primary": "#dbfcff",
+                        "tertiary-container": "#fed639",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#006970",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#271900",
+                        "on-surface-variant": "#b9cacb",
+                        "on-surface": "#dce4e5",
+                        "on-primary-fixed": "#002022",
+                        "on-background": "#dce4e5",
+                        "surface-variant": "#2e3637",
+                        "tertiary-fixed": "#ffe179",
+                        "tertiary": "#fff5de",
+                        "primary-fixed-dim": "#00dbe9",
+                        "secondary-container": "#feb700",
+                        "surface": "#0d1515",
+                        "outline": "#849495",
+                        "on-tertiary-container": "#715d00",
+                        "on-tertiary": "#3b2f00",
+                        "surface-container-low": "#151d1e",
+                        "primary-fixed": "#7df4ff",
+                        "primary-container": "#00f0ff",
+                        "surface-container": "#192122",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "panel-gap": "1px",
+                        "gutter": "16px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "data-sm": ["JetBrains Mono"],
+                        "data-lg": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "data-sm": ["12px", { "lineHeight": "1", "fontWeight": "400" }],
+                        "data-lg": ["18px", { "lineHeight": "1", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["11px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0A0E17; color: #dce4e5; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-cyan { text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); }
+        .glow-crimson { text-shadow: 0 0 10px rgba(255, 180, 171, 0.5); }
+        .bg-glow-cyan { box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.2); }
+    </style>
+<style data-stitch-cursor="">*{cursor:crosshair!important}[contenteditable="true"]:focus,.cursor-text:focus{cursor:text!important}</style><style data-stitch-scroll-lock="">html,body{overflow:hidden!important}</style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="min-h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="h-screen w-[15%] fixed left-0 top-0 bg-surface-container-lowest/30 backdrop-blur-xl border-r border-outline-variant/10 flex flex-col py-gutter px-4 z-50">
+<div class="mb-8 mt-4">
+<div class="font-headline-lg text-headline-lg font-bold text-primary-container tracking-tighter">CORE<div class="">INSIGHT</div></div>
+<div class="font-data-sm text-data-sm text-on-surface-variant mt-1 opacity-70">V.4.0 ONLINE</div>
+</div>
+<div class="flex-grow space-y-2">
+<a class="flex items-center space-x-3 p-3 rounded text-primary-container bg-primary-container/10 border-l-2 border-primary-container font-bold font-label-caps text-label-caps scale-95 duration-100" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">dashboard</span>
+<span class="">Overview</span>
+</a>
+<a class="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-label-caps text-label-caps hover:bg-surface-variant/20 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="">Live Telemetry</span>
+</a>
+<a class="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-label-caps text-label-caps hover:bg-surface-variant/20 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="">Diagnostics</span>
+</a>
+<a class="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-label-caps text-label-caps hover:bg-surface-variant/20 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">science</span>
+<span class="">Simulation Lab</span>
+</a>
+<a class="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-label-caps text-label-caps hover:bg-surface-variant/20 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">build</span>
+<span class="">Maintenance Hub</span>
+</a>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/10">
+<button class="w-full mb-4 bg-primary-container text-on-primary-fixed font-label-caps text-label-caps py-3 rounded hover:bg-primary-fixed transition-colors">
+                GENERATE REPORT
+            </button>
+<div class="flex flex-col space-y-2">
+<a class="flex items-center space-x-3 p-2 rounded text-on-surface-variant font-medium font-label-caps text-label-caps hover:bg-surface-variant/20 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="">System Logs</span>
+</a>
+<a class="flex items-center space-x-3 p-2 rounded text-on-surface-variant font-medium font-label-caps text-label-caps hover:bg-surface-variant/20 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="">Settings</span>
+</a>
+</div>
+<div class="mt-4 flex items-center space-x-2 text-data-sm font-data-sm text-on-surface-variant">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,240,255,0.8)]"></div>
+<span class="">System Status: Online</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-[15%] flex-grow flex h-screen pt-16 pb-gutter px-gutter gap-panel-gap">
+<!-- TopAppBar (Floating above content) -->
+<header class="fixed top-0 left-[15%] right-0 h-16 z-40 bg-surface/10 backdrop-blur-md border-b border-outline-variant/5 flex items-center justify-between px-gutter transition-all duration-200 ease-in-out"><div class="flex items-center min-w-[240px]"><div class="font-headline-md text-headline-md font-bold text-primary-container">INSIGHT MONITOR</div></div><nav class="hidden md:flex flex-grow justify-center space-x-6 font-label-caps text-label-caps"><a class="text-primary-container border-b-2 border-primary-container pb-1" href="#">Real-time</a><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">History</a><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Nodes</a></nav><div class="flex items-center space-x-4 min-w-[240px] justify-end"><button class="bg-error-container/20 border border-error text-error font-label-caps text-label-caps px-4 py-2 rounded hover:bg-error-container/40 transition-colors">EMERGENCY SHUTDOWN</button><button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">dark_mode</span></button><button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">notifications</span></button><button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">account_circle</span></button></div></header>
+<!-- Center Stage (55%) -->
+<div class="flex-[55%] flex flex-col gap-panel-gap">
+<!-- Gauges Row -->
+<div class="flex gap-panel-gap h-[25%]">
+<div class="glass-panel flex-1 rounded-xl p-6 flex flex-col items-center justify-center relative bg-glow-cyan overflow-hidden">
+<div class="font-label-caps text-label-caps text-primary-container mb-4 opacity-80 tracking-widest uppercase">Anomaly Score</div>
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="rgba(255,255,255,0.1)" stroke-width="8"></circle>
+<circle class="drop-shadow-[0_0_10px_rgba(0,240,255,0.8)]" cx="50" cy="50" fill="none" r="45" stroke="#00f0ff" stroke-dasharray="283" stroke-dashoffset="31" stroke-width="8"></circle>
+</svg>
+<div class="absolute font-headline-lg text-headline-lg font-bold text-primary-container glow-cyan">89%</div>
+</div>
+</div>
+<div class="glass-panel flex-1 rounded-xl p-6 flex flex-col items-center justify-center relative shadow-[inset_0_0_30px_rgba(255,180,171,0.1)] overflow-hidden border-error/30">
+<div class="font-label-caps text-label-caps text-error mb-4 opacity-80 tracking-widest uppercase">Failure Probability</div>
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="rgba(255,255,255,0.1)" stroke-width="8"></circle>
+<circle class="drop-shadow-[0_0_10px_rgba(255,180,171,0.8)] animate-pulse" cx="50" cy="50" fill="none" r="45" stroke="#ffb4ab" stroke-dasharray="283" stroke-dashoffset="50" stroke-width="8"></circle>
+</svg>
+<div class="absolute font-headline-lg text-headline-lg font-bold text-error glow-crimson animate-pulse">82%</div>
+</div>
+</div>
+</div>
+<!-- Parameter Grid -->
+<div class="grid grid-cols-3 gap-panel-gap h-[22%]">
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Vibration RMS</span>
+<span class="px-2 py-1 bg-error-container/30 text-error font-data-sm text-data-sm rounded border border-error/50">CRIT</span>
+</div>
+<div>
+<div class="font-data-lg text-data-lg text-error glow-crimson">14.2 <span class="text-data-sm text-on-surface-variant">mm/s</span></div>
+<div class="h-8 mt-2 w-full bg-surface-container-low rounded relative overflow-hidden">
+<div class="absolute bottom-0 left-0 h-[60%] w-full border-t border-error/50 bg-gradient-to-t from-error/20 to-transparent"></div>
+<svg class="w-full h-full" preserveAspectRatio="none"><path d="M0,30 Q10,10 20,20 T40,25 T60,5 T80,15 T100,0 L100,32 L0,32 Z" fill="rgba(255,180,171,0.2)" stroke="#ffb4ab" stroke-width="1"></path></svg>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Bearing Temp</span>
+<span class="px-2 py-1 bg-secondary-container/30 text-secondary-fixed-dim font-data-sm text-data-sm rounded border border-secondary-fixed-dim/50">WARN</span>
+</div>
+<div>
+<div class="font-data-lg text-data-lg text-secondary-fixed-dim">88.5 <span class="text-data-sm text-on-surface-variant">°C</span></div>
+<div class="h-8 mt-2 w-full bg-surface-container-low rounded relative overflow-hidden">
+<svg class="w-full h-full" preserveAspectRatio="none"><path d="M0,20 Q15,15 30,25 T60,10 T90,20 T100,15 L100,32 L0,32 Z" fill="rgba(255,186,32,0.2)" stroke="#ffba20" stroke-width="1"></path></svg>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Motor Current</span>
+<span class="px-2 py-1 bg-primary-container/10 text-primary-container font-data-sm text-data-sm rounded border border-primary-container/30">NOM</span>
+</div>
+<div>
+<div class="font-data-lg text-data-lg text-primary-container">42.1 <span class="text-data-sm text-on-surface-variant">A</span></div>
+<div class="h-8 mt-2 w-full bg-surface-container-low rounded relative overflow-hidden">
+<svg class="w-full h-full" preserveAspectRatio="none"><path d="M0,25 Q20,25 40,25 T80,25 T100,25 L100,32 L0,32 Z" fill="rgba(0,240,255,0.1)" stroke="#00f0ff" stroke-width="1"></path></svg>
+</div>
+</div>
+</div>
+</div><div class="grid grid-cols-3 gap-panel-gap h-[18%]">
+<!-- Container 4: RPM -->
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">RPM</span>
+<span class="px-2 py-1 bg-primary-container/10 text-primary-container font-data-sm text-data-sm rounded border border-primary-container/30">NOM</span>
+</div>
+<div>
+<div class="font-data-lg text-data-lg text-primary-container">1750 <span class="text-data-sm text-on-surface-variant">rpm</span></div>
+<div class="h-8 mt-2 w-full bg-surface-container-low rounded relative overflow-hidden">
+<svg class="w-full h-full" preserveAspectRatio="none">
+<path d="M0,25 Q15,20 30,25 T60,22 T90,25 T100,24 L100,32 L0,32 Z" fill="rgba(0,240,255,0.1)" stroke="#00f0ff" stroke-width="1"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Container 5: PRESSURE -->
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">PRESSURE</span>
+<span class="px-2 py-1 bg-secondary-container/30 text-secondary-fixed-dim font-data-sm text-data-sm rounded border border-secondary-fixed-dim/50">WARN</span>
+</div>
+<div>
+<div class="font-data-lg text-data-lg text-secondary-fixed-dim">102.4 <span class="text-data-sm text-on-surface-variant">N/m³</span></div>
+<div class="h-8 mt-2 w-full bg-surface-container-low rounded relative overflow-hidden">
+<svg class="w-full h-full" preserveAspectRatio="none">
+<path d="M0,28 Q20,15 40,22 T70,18 T100,25 L100,32 L0,32 Z" fill="rgba(255,186,32,0.2)" stroke="#ffba20" stroke-width="1"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Container 6: SYSTEM OVERRIDE / SIMULATION -->
+<div class="glass-panel rounded-xl p-4 flex flex-col">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-3">SYSTEM OVERRIDE / SIMULATION</div>
+<div class="flex flex-col gap-2 flex-grow justify-center">
+<button class="w-full py-2 border border-primary-container/40 text-primary-container font-label-caps text-label-caps rounded hover:bg-primary-container/10 transition-all text-[10px]">
+                NORMAL
+            </button>
+<button class="w-full py-2 bg-error/20 border border-error text-error font-label-caps text-label-caps rounded shadow-[0_0_15px_rgba(255,180,171,0.4)] animate-pulse hover:bg-error/30 transition-all text-[10px]">
+                ABNORMAL
+            </button>
+</div>
+</div>
+</div>
+<!-- Historical Chart -->
+<div class="glass-panel flex-grow rounded-xl p-6 flex flex-col">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase">Sensor Trends (24H)</div>
+<div class="flex-grow relative bg-surface-container-low/50 rounded border border-outline-variant/20 overflow-hidden">
+<!-- Fake Chart Grid & Content -->
+<div class="absolute inset-0 grid grid-cols-6 grid-rows-4 opacity-10">
+<div class="border-b border-r border-white"></div><div class="border-b border-r border-white"></div><div class="border-b border-r border-white"></div><div class="border-b border-r border-white"></div><div class="border-b border-r border-white"></div><div class="border-b border-white"></div>
+<div class="border-b border-r border-white"></div><div class="border-b border-r border-white"></div><div class="border-b border-r border-white"></div><div class="border-b border-r border-white"></div><div class="border-b border-r border-white"></div><div class="border-b border-white"></div>
+<div class="border-b border-r border-white"></div><div class="border-b border-r border-white"></div><div class="border-b border-r border-white"></div><div class="border-b border-r border-white"></div><div class="border-b border-r border-white"></div><div class="border-b border-white"></div>
+<div class="border-r border-white"></div><div class="border-r border-white"></div><div class="border-r border-white"></div><div class="border-r border-white"></div><div class="border-r border-white"></div><div></div>
+</div>
+<!-- Safe Band -->
+<div class="absolute top-[40%] bottom-[20%] left-0 right-0 bg-primary-container/5 border-y border-primary-container/20"></div>
+<!-- Spike Area -->
+<div class="absolute top-0 bottom-[60%] left-[70%] right-[10%] bg-error/10 border-b border-error/30"></div>
+<!-- Line -->
+<svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+<path class="drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]" d="M0,70 Q10,75 20,65 T40,60 T60,70 T70,20 T80,10 T90,50 T100,55" fill="none" stroke="#00f0ff" stroke-width="2"></path>
+<path class="drop-shadow-[0_0_8px_rgba(255,180,171,0.8)]" d="M70,20 T80,10" fill="none" stroke="#ffb4ab" stroke-width="3"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Right Pane (30%) -->
+<div class="flex-[30%] flex flex-col gap-panel-gap">
+<!-- RCA Narrative -->
+<div class="glass-panel flex-[40%] rounded-xl p-6 border-l-4 border-l-secondary-fixed-dim">
+<div class="font-label-caps text-label-caps text-secondary-fixed-dim mb-4 flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm">psychology</span>
+<span class="">Root Cause Analysis</span>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface mb-2">Stage 3 Bearing Degradation</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">AI Hypothesizes structural fatigue in inner race due to prolonged elevated thermal states.</p>
+<ul class="space-y-2 font-data-sm text-data-sm text-on-surface-variant">
+<li class="flex items-start space-x-2">
+<span class="text-error mt-0.5">•</span>
+<span class="">High frequency vibration harmonic matched to bearing defect freq (BPFI).</span>
+</li>
+<li class="flex items-start space-x-2">
+<span class="text-secondary-fixed-dim mt-0.5">•</span>
+<span class="">Temp gradient exceeds nominal +15°C over 48h.</span>
+</li>
+</ul>
+</div>
+<!-- Recommended Action -->
+<div class="glass-panel flex-[25%] rounded-xl p-6 bg-error-container/10 border border-error/30 flex flex-col justify-center">
+<div class="font-label-caps text-label-caps text-error mb-2 uppercase">Required Action</div>
+<div class="font-body-lg text-body-lg font-bold text-on-error-container mb-4">Schedule Immediate Bearing Replacement</div>
+<div>
+<div class="flex justify-between font-data-sm text-data-sm text-on-surface-variant mb-1">
+<span class="">AI Confidence</span>
+<span class="">94%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high rounded overflow-hidden">
+<div class="h-full bg-error w-[94%] shadow-[0_0_8px_rgba(255,180,171,0.8)]"></div>
+</div>
+</div>
+<button class="mt-4 w-full bg-error text-on-error font-label-caps text-label-caps py-2 rounded hover:bg-error/80 transition-colors">
+                    INITIATE WORK ORDER
+                </button>
+</div>
+<!-- Simulation Lab -->
+<div class="glass-panel flex-[35%] rounded-xl p-6">
+<div class="font-label-caps text-label-caps text-primary-container mb-4 flex items-center space-x-2 uppercase">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span class="">Simulate Parameters</span>
+</div>
+<div class="space-y-6 mt-4">
+<div>
+<div class="flex justify-between font-data-sm text-data-sm mb-2">
+<span class="text-on-surface-variant">vibration_rms</span>
+<span class="text-primary-container">14.2 mm/s</span>
+</div>
+<input class="w-full accent-primary-container h-1 bg-surface-container-high rounded appearance-none focus:outline-none" max="20" min="0" type="range" value="14.2">
+</div>
+<div>
+<div class="flex justify-between font-data-sm text-data-sm mb-2">
+<span class="text-on-surface-variant">bearing_temp</span>
+<span class="text-secondary-fixed-dim">88.5 °C</span>
+</div>
+<input class="w-full accent-secondary-fixed-dim h-1 bg-surface-container-high rounded appearance-none focus:outline-none" max="150" min="0" type="range" value="88.5">
+</div>
+</div>
+</div>
+</div>
+</main>
+
+
+
+
+
+
+</body></html>

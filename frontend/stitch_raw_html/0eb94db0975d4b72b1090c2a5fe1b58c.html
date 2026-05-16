@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Diagnostics Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-surface": "#1c1b1d",
+                        "on-primary-fixed-variant": "#004f54",
+                        "on-surface-variant": "#3b494b",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-dim": "#dcd9db",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "tertiary": "#565e74",
+                        "tertiary-container": "#d1d9f3",
+                        "surface-container-low": "#f6f2f4",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#00dbe9",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-primary-container": "#006970",
+                        "error": "#ba1a1a",
+                        "primary": "#006970",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e5e1e3",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#006970",
+                        "primary-fixed": "#7df4ff",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "secondary-fixed-dim": "#4edea3",
+                        "surface-container": "#f1edef",
+                        "tertiary-fixed": "#dae2fd",
+                        "surface-container-high": "#ebe7e9",
+                        "outline": "#6a7a7b",
+                        "on-secondary-fixed": "#002113",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e5e1e3",
+                        "outline-variant": "#b9cacb",
+                        "surface-bright": "#fcf8fa",
+                        "error-container": "#ffdad6",
+                        "background": "#fcf8fa",
+                        "on-background": "#1c1b1d",
+                        "secondary-container": "#6cf8bb",
+                        "secondary": "#006c49",
+                        "on-tertiary-container": "#575e75",
+                        "surface": "#fcf8fa",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-secondary-container": "#00714d",
+                        "inverse-surface": "#313032",
+                        "inverse-primary": "#00dbe9",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#00f0ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#002022"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "48px",
+                        "xs": "4px",
+                        "max_width": "1440px",
+                        "base": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "gutter": "16px",
+                        "margin": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "mono-data": ["Space Grotesk"],
+                        "title-md": ["Space Grotesk"],
+                        "headline-lg-mobile": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "mono-data": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #fcf8fa; color: #1c1b1d; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg overflow-x-hidden antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-40 flex justify-between items-center px-lg bg-surface/90 backdrop-blur-md h-16 border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="font-headline-lg text-headline-lg font-bold tracking-tight text-on-surface">CORE INSIGHT</span>
+</div>
+<nav class="hidden md:flex flex-1 justify-center gap-lg">
+<a class="text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-150 px-sm py-xs rounded" href="#">Real-time</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-150 px-sm py-xs rounded" href="#">History</a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-150 px-sm py-xs rounded" href="#">Nodes</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="bg-[#0f172a] text-[#00f0ff] px-md py-sm rounded border border-transparent hover:border-[#00f0ff] transition-all font-label-caps text-label-caps" style="box-shadow: 2px 2px 0px rgba(0, 240, 255, 0.2);">Emergency Shutdown</button>
+<button class="text-on-surface-variant hover:bg-surface-container-high p-sm rounded-full transition-colors duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-high p-sm rounded-full transition-colors duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden ml-sm cursor-pointer hover:ring-1 ring-primary transition-all">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close up professional headshot of an individual, bright natural lighting, modern corporate environment, high resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB43FUUE4RIghnDoatGeh4BfWqHxAVNBP_ZOQZoTOyW636-mIWT2NTwe3ktcct2t1fvR10rfY8foCOtPn0NXpodpWEL_WwLIL2A__xUiWrpi90QUAtyp5GRvm-1jWBpZnqydv43AV0V0UL-6ZgYr_DMFIgfzWbIosActanpOd5qswnY5MzXQ6UQs28Q7nwPaljiIMGVCcF1uvUScRpkTPf8Ex-Y5gHgyBNKv5WuMsyqnBZwle9UBz4EvvNgEHeu17qdM1OYpDQFN4Q"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar & Main Content Wrapper -->
+<div class="flex h-screen pt-16">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 z-30 flex flex-col pt-lg pb-xl bg-surface border-r border-outline-variant">
+<div class="px-lg mb-xl">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-10 h-10 rounded border border-outline-variant bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">dns</span>
+</div>
+<div>
+<div class="font-label-caps text-label-caps font-bold text-on-surface">CORE_SYS_01</div>
+<div class="font-mono-data text-mono-data text-on-surface-variant text-[10px]">V.2.4.0_STABLE</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-xs px-sm">
+<a class="flex items-center gap-md px-md py-sm rounded-r-none text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-label-caps text-label-caps">Overview</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-r-none text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">analytics</span>
+<span class="font-label-caps text-label-caps">Telemetry</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-r-none bg-secondary-container/20 text-primary border-r-4 border-primary translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">biotech</span>
+<span class="font-label-caps text-label-caps">Diagnostics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-r-none text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">science</span>
+<span class="font-label-caps text-label-caps">Simulation Lab</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-r-none text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">engineering</span>
+<span class="font-label-caps text-label-caps">Maintenance Hub</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 p-lg overflow-y-auto bg-surface-container-low">
+<div class="flex gap-lg h-full">
+<!-- Left Pane: Root Cause Radar -->
+<div class="w-1/3 flex flex-col gap-md">
+<h2 class="font-title-md text-title-md text-on-surface pb-sm border-b border-outline-variant">Root Cause Radar</h2>
+<div class="flex flex-col gap-sm overflow-y-auto pr-sm">
+<!-- Critical Warning Card -->
+<div class="bg-error-container border border-error rounded p-md cursor-pointer hover:shadow-sm transition-shadow">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-xs text-error">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-caps text-label-caps">CRITICAL</span>
+</div>
+<span class="font-mono-data text-mono-data text-error">98% PROBABILITY</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-error-container mb-xs">Impending Bearing Failure</h3>
+<p class="font-body-sm text-body-sm text-on-error-container/80 mb-sm">Excessive vibration detected in primary centrifuge spindle. Immediate intervention required to prevent catastrophic failure.</p>
+<div class="flex gap-xs mt-auto">
+<span class="bg-surface/50 text-on-error-container font-mono-data text-mono-data px-xs py-[2px] rounded text-[10px]">NODE: CF-04</span>
+<span class="bg-surface/50 text-on-error-container font-mono-data text-mono-data px-xs py-[2px] rounded text-[10px]">VIB: 14.2 mm/s</span>
+</div>
+</div>
+<!-- Warning Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md cursor-pointer hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">build</span>
+<span class="font-label-caps text-label-caps">ELEVATED RISK</span>
+</div>
+<span class="font-mono-data text-mono-data text-on-surface-variant">64% PROBABILITY</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Thermal Gradient Anomaly</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-sm">Cooling loop 2 showing reduced efficiency. Potential coolant flow restriction or sensor drift.</p>
+<div class="flex gap-xs mt-auto">
+<span class="bg-surface-container text-on-surface font-mono-data text-mono-data px-xs py-[2px] rounded text-[10px]">NODE: CL-02</span>
+<span class="bg-surface-container text-on-surface font-mono-data text-mono-data px-xs py-[2px] rounded text-[10px]">DELTA-T: 4.8°C</span>
+</div>
+</div>
+<!-- Warning Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md cursor-pointer hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">network_check</span>
+<span class="font-label-caps text-label-caps">MODERATE RISK</span>
+</div>
+<span class="font-mono-data text-mono-data text-on-surface-variant">32% PROBABILITY</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Data Latency Spike</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-sm">Intermittent packet loss detected on secondary diagnostic bus. Monitoring required.</p>
+<div class="flex gap-xs mt-auto">
+<span class="bg-surface-container text-on-surface font-mono-data text-mono-data px-xs py-[2px] rounded text-[10px]">BUS: DIAG-B</span>
+<span class="bg-surface-container text-on-surface font-mono-data text-mono-data px-xs py-[2px] rounded text-[10px]">LOSS: 0.4%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Pane: AI Diagnostic Terminal -->
+<div class="w-2/3 flex flex-col gap-md bg-surface-container-lowest border border-outline-variant rounded shadow-sm overflow-hidden">
+<!-- Terminal Header -->
+<div class="flex items-center justify-between px-md py-sm border-b border-outline-variant bg-surface-container-high">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">terminal</span>
+<span class="font-label-caps text-label-caps text-on-surface">AI DIAGNOSTIC TERMINAL // CF-04</span>
+</div>
+<div class="flex gap-xs">
+<button class="p-xs text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
+<button class="p-xs text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">open_in_full</span></button>
+</div>
+</div>
+<!-- Code Payload Display -->
+<div class="flex-1 bg-[#1e293b] p-md overflow-y-auto font-mono-data text-[13px] text-[#e2e8f0] leading-relaxed relative">
+<div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 1px, #fff 1px, #fff 2px);"></div>
+<pre><code>{
+  "diagnostic_request": "CF-04_VIB_ANALYSIS",
+  "timestamp": "2024-05-20T14:32:01Z",
+  "status": "PROCESSING_COMPLETE",
+  "ai_confidence": 0.984,
+  "payload": {
+    "sensor_data": {
+      "x_axis": [12.4, 13.1, 14.2, 14.5, 15.0],
+      "y_axis": [8.2, 8.5, 9.1, 9.8, 10.2],
+      "z_axis": [4.1, 4.3, 4.2, 4.5, 4.8]
+    },
+    "fft_analysis": {
+      "dominant_frequency_hz": 120.5,
+      "harmonics_detected": true,
+      "harmonic_ratio": 2.4
+    },
+    "historical_correlation": {
+      "match_found": true,
+      "reference_id": "INC-2023-08-14-A",
+      "similarity_score": 0.92
+    },
+    "recommendation": [
+      "INITIATE CONTROLLED SHUTDOWN SEQUENCE CF-04",
+      "DISPATCH MAINTENANCE CREW FOR BEARING REPLACEMENT",
+      "INSPECT SECONDARY SHAFT FOR MISALIGNMENT"
+    ]
+  }
+}</code></pre>
+</div>
+<!-- Chat Interface Below Terminal -->
+<div class="p-md border-t border-outline-variant bg-surface">
+<div class="flex flex-col gap-sm mb-md h-32 overflow-y-auto">
+<!-- AI Message -->
+<div class="flex gap-sm items-start">
+<div class="w-6 h-6 rounded bg-primary/10 flex items-center justify-center shrink-0 border border-primary/30">
+<span class="material-symbols-outlined text-[14px] text-primary">smart_toy</span>
+</div>
+<div class="bg-surface-container-low p-sm rounded border border-outline-variant text-body-sm text-on-surface">
+                                    Analysis complete. The vibration signature strongly correlates with inner race bearing degradation. I recommend immediate scheduled downtime to prevent secondary damage to the main shaft.
+                                </div>
+</div>
+<!-- User Message -->
+<div class="flex gap-sm items-start flex-row-reverse">
+<div class="w-6 h-6 rounded bg-surface-container-highest flex items-center justify-center shrink-0 border border-outline-variant">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">person</span>
+</div>
+<div class="bg-secondary-container/20 p-sm rounded border border-secondary/30 text-body-sm text-on-surface text-right">
+                                    Generate the maintenance work order and attach this diagnostic payload.
+                                </div>
+</div>
+</div>
+<!-- Input Field -->
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface placeholder-on-surface-variant text-body-sm rounded pl-md pr-12 py-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Query AI assistant or enter command..." type="text"/>
+<button class="absolute right-sm top-1/2 -translate-y-1/2 text-primary hover:text-primary-container p-xs rounded transition-colors">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
