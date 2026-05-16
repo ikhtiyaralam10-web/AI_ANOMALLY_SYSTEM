@@ -124,14 +124,14 @@ export default function TelemetryDark() {
         </div>
 
         {/* Upper Section: Charts (60% Height) */}
-        <div className="flex-grow flex flex-col gap-1 h-[60%]">
+        <div className="flex-[6] min-h-0 flex flex-col gap-1">
           {/* Chart 1 */}
-          <div className="glass-panel flex-1 p-4 relative group rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+          <div className="glass-panel flex-1 min-h-0 p-4 flex flex-col relative group rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
             <div className="flex justify-between items-start mb-2">
               <span className="font-mono text-[11px] font-bold text-on-surface-variant">VIBRATION RMS VS NOMINAL BAND</span>
               <span className="font-mono text-[12px] text-error animate-pulse font-bold">CRITICAL SPIKE DETECTED</span>
             </div>
-            <div className="w-full h-[calc(100%-20px)] overflow-hidden">
+            <div className="w-full flex-1 min-h-0 overflow-hidden">
               <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 120">
                 {/* Safe Zone */}
                 <rect fill="rgba(255, 255, 255, 0.03)" height="40" width="1000" x="0" y="40"></rect>
@@ -143,12 +143,12 @@ export default function TelemetryDark() {
             </div>
           </div>
           {/* Chart 2 */}
-          <div className="glass-panel flex-1 p-4 relative group rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+          <div className="glass-panel flex-1 min-h-0 p-4 flex flex-col relative group rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
             <div className="flex justify-between items-start mb-2">
               <span className="font-mono text-[11px] font-bold text-on-surface-variant">BEARING TEMPERATURE</span>
               <span className="font-mono text-[12px] text-secondary font-bold">+2.4°C / HR TREND</span>
             </div>
-            <div className="w-full h-[calc(100%-20px)] overflow-hidden">
+            <div className="w-full flex-1 min-h-0 overflow-hidden">
               <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 120">
                 {/* Yellow Line Trending Up */}
                 <path className="drop-shadow-[0_0_4px_rgba(255,186,32,0.5)]" d="M0,90 L150,85 L300,80 L450,70 L600,65 L750,50 L900,45 L1000,40" fill="none" stroke="#ffba20" strokeWidth="2"></path>
@@ -156,12 +156,12 @@ export default function TelemetryDark() {
             </div>
           </div>
           {/* Chart 3 */}
-          <div className="glass-panel flex-1 p-4 relative group rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+          <div className="glass-panel flex-1 min-h-0 p-4 flex flex-col relative group rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
             <div className="flex justify-between items-start mb-2">
               <span className="font-mono text-[11px] font-bold text-on-surface-variant">MOTOR RPM</span>
               <span className="font-mono text-[12px] text-primary-container font-bold">STABLE NOMINAL</span>
             </div>
-            <div className="w-full h-[calc(100%-20px)] overflow-hidden">
+            <div className="w-full flex-1 min-h-0 overflow-hidden">
               <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 120">
                 {/* Cyan Line Stable */}
                 <path className="drop-shadow-[0_0_4px_rgba(0,240,255,0.5)]" d="M0,60 L100,58 L200,62 L300,60 L400,59 L500,61 L600,60 L700,58 L800,62 L900,60 L1000,60" fill="none" stroke="#00f0ff" strokeWidth="2"></path>
@@ -171,18 +171,18 @@ export default function TelemetryDark() {
         </div>
 
         {/* Lower Section: Telemetry Grid (40% Height) */}
-        <div className="h-[40%] grid grid-cols-4 gap-1">
+        <div className="flex-[4] min-h-0 grid grid-cols-4 grid-rows-2 gap-1">
           {/* Vibration RMS */}
           <div className="glass-panel p-4 flex flex-col justify-between border-l-2 border-error/50 rounded-xl" style={{ background: "rgba(255, 255, 255, 0.03)", backdropFilter: "blur(12px)" }}>
             <div className="flex justify-between items-start">
               <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-tighter font-bold">Vibration RMS</span>
               <span className="px-2 py-0.5 bg-error-container/20 text-error font-mono text-[9px] rounded-full animate-pulse font-bold">CRITICAL</span>
             </div>
-            <div className="flex items-baseline gap-2 mt-4">
+            <div className="flex items-baseline gap-2 mt-2">
               <span className="font-mono text-[28px] text-error font-bold leading-none">14.2</span>
               <span className="font-mono text-on-surface-variant text-[12px] font-bold">MM/S</span>
             </div>
-            <div className="mt-auto h-8 w-full">
+            <div className="mt-auto flex-1 min-h-[20px] max-h-8 w-full">
               <svg className="w-full h-full" viewBox="0 0 100 20" preserveAspectRatio="none">
                 <path d="M0,10 L10,12 L20,8 L30,15 L40,5 L50,18 L60,2 L70,14 L80,6 L90,12 L100,10" fill="none" stroke="#ffb4ab" strokeWidth="1"></path>
               </svg>
@@ -194,11 +194,11 @@ export default function TelemetryDark() {
               <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-tighter font-bold">Bearing Temp</span>
               <span className="px-2 py-0.5 bg-secondary-container/20 text-secondary font-mono text-[9px] rounded-full font-bold">WARNING</span>
             </div>
-            <div className="flex items-baseline gap-2 mt-4">
+            <div className="flex items-baseline gap-2 mt-2">
               <span className="font-mono text-[28px] text-secondary font-bold leading-none">85.5</span>
               <span className="font-mono text-on-surface-variant text-[12px] font-bold">°C</span>
             </div>
-            <div className="mt-auto h-8 w-full">
+            <div className="mt-auto flex-1 min-h-[20px] max-h-8 w-full">
               <svg className="w-full h-full" viewBox="0 0 100 20" preserveAspectRatio="none">
                 <path d="M0,18 L20,16 L40,14 L60,10 L80,8 L100,5" fill="none" stroke="#ffba20" strokeWidth="1"></path>
               </svg>
@@ -210,11 +210,11 @@ export default function TelemetryDark() {
               <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-tighter font-bold">Motor Current</span>
               <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 font-mono text-[9px] rounded-full font-bold">NORMAL</span>
             </div>
-            <div className="flex items-baseline gap-2 mt-4">
+            <div className="flex items-baseline gap-2 mt-2">
               <span className="font-mono text-[28px] text-on-surface font-bold leading-none">42.1</span>
               <span className="font-mono text-on-surface-variant text-[12px] font-bold">A</span>
             </div>
-            <div className="mt-auto h-8 w-full">
+            <div className="mt-auto flex-1 min-h-[20px] max-h-8 w-full">
               <svg className="w-full h-full opacity-30" viewBox="0 0 100 20" preserveAspectRatio="none">
                 <line stroke="var(--theme-on-surface)" strokeWidth="1" x1="0" x2="100" y1="10" y2="10"></line>
               </svg>
@@ -226,11 +226,11 @@ export default function TelemetryDark() {
               <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-tighter font-bold">Motor RPM</span>
               <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 font-mono text-[9px] rounded-full font-bold">NORMAL</span>
             </div>
-            <div className="flex items-baseline gap-2 mt-4">
+            <div className="flex items-baseline gap-2 mt-2">
               <span className="font-mono text-[28px] text-on-surface font-bold leading-none">1745.0</span>
               <span className="font-mono text-on-surface-variant text-[12px] font-bold">RPM</span>
             </div>
-            <div className="mt-auto h-8 w-full">
+            <div className="mt-auto flex-1 min-h-[20px] max-h-8 w-full">
               <svg className="w-full h-full opacity-30" viewBox="0 0 100 20" preserveAspectRatio="none">
                 <line stroke="var(--theme-on-surface)" strokeWidth="1" x1="0" x2="100" y1="10" y2="10"></line>
               </svg>
@@ -242,11 +242,11 @@ export default function TelemetryDark() {
               <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-tighter font-bold">System Pressure</span>
               <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 font-mono text-[9px] rounded-full font-bold">NORMAL</span>
             </div>
-            <div className="flex items-baseline gap-2 mt-4">
+            <div className="flex items-baseline gap-2 mt-2">
               <span className="font-mono text-[28px] text-on-surface font-bold leading-none">115.2</span>
               <span className="font-mono text-on-surface-variant text-[12px] font-bold">PSI</span>
             </div>
-            <div className="mt-auto h-8 w-full">
+            <div className="mt-auto flex-1 min-h-[20px] max-h-8 w-full">
               <svg className="w-full h-full opacity-30" viewBox="0 0 100 20" preserveAspectRatio="none">
                 <line stroke="var(--theme-on-surface)" strokeWidth="1" x1="0" x2="100" y1="10" y2="10"></line>
               </svg>
@@ -258,11 +258,11 @@ export default function TelemetryDark() {
               <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-tighter font-bold">Inlet Pressure</span>
               <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 font-mono text-[9px] rounded-full font-bold">NORMAL</span>
             </div>
-            <div className="flex items-baseline gap-2 mt-4">
+            <div className="flex items-baseline gap-2 mt-2">
               <span className="font-mono text-[28px] text-on-surface font-bold leading-none">12.0</span>
               <span className="font-mono text-on-surface-variant text-[12px] font-bold">BAR</span>
             </div>
-            <div className="mt-auto h-8 w-full">
+            <div className="mt-auto flex-1 min-h-[20px] max-h-8 w-full">
               <svg className="w-full h-full opacity-30" viewBox="0 0 100 20" preserveAspectRatio="none">
                 <line stroke="var(--theme-on-surface)" strokeWidth="1" x1="0" x2="100" y1="10" y2="10"></line>
               </svg>
@@ -274,11 +274,11 @@ export default function TelemetryDark() {
               <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-tighter font-bold">Flow Rate</span>
               <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 font-mono text-[9px] rounded-full font-bold">NORMAL</span>
             </div>
-            <div className="flex items-baseline gap-2 mt-4">
+            <div className="flex items-baseline gap-2 mt-2">
               <span className="font-mono text-[28px] text-on-surface font-bold leading-none text-primary-fixed">110.5</span>
               <span className="font-mono text-on-surface-variant text-[12px] font-bold">L/MIN</span>
             </div>
-            <div className="mt-auto h-8 w-full">
+            <div className="mt-auto flex-1 min-h-[20px] max-h-8 w-full">
               <svg className="w-full h-full" viewBox="0 0 100 20" preserveAspectRatio="none">
                 <path d="M0,2 L25,5 L50,8 L75,15 L100,18" fill="none" stroke="#7df4ff" strokeWidth="1"></path>
               </svg>
@@ -290,11 +290,11 @@ export default function TelemetryDark() {
               <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-tighter font-bold">Valve Position</span>
               <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 font-mono text-[9px] rounded-full font-bold">NORMAL</span>
             </div>
-            <div className="flex items-baseline gap-2 mt-4">
+            <div className="flex items-baseline gap-2 mt-2">
               <span className="font-mono text-[28px] text-on-surface font-bold leading-none">45.0</span>
               <span className="font-mono text-on-surface-variant text-[12px] font-bold">%</span>
             </div>
-            <div className="mt-auto h-8 w-full opacity-30">
+            <div className="mt-auto flex-1 min-h-[20px] max-h-8 w-full opacity-30">
               <svg className="w-full h-full" viewBox="0 0 100 20" preserveAspectRatio="none">
                 <line stroke="var(--theme-on-surface)" strokeWidth="1" x1="0" x2="100" y1="10" y2="10"></line>
               </svg>
