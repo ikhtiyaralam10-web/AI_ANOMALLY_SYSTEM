@@ -33,10 +33,10 @@ export default function DiagnosticsDark() {
             <span className="material-symbols-outlined">science</span>
             <span>Simulation Lab</span>
           </Link>
-          <a className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-[11px] font-bold hover:bg-surface-variant/20 hover:text-primary transition-all" href="/maintenance-hub">
+          <Link className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-[11px] font-bold hover:bg-surface-variant/20 hover:text-primary transition-all" href="/maintenance-hub">
             <span className="material-symbols-outlined">build</span>
             <span>Maintenance Hub</span>
-          </a>
+          </Link>
         </div>
         <div className="mt-auto pt-4 border-t border-outline-variant/10">
           <button className="w-full mb-4 bg-[#64ffda] text-on-primary-fixed font-mono text-[11px] font-bold py-3 rounded hover:bg-primary transition-colors shadow-[0_0_20px_rgba(0,240,255,0.2)]">

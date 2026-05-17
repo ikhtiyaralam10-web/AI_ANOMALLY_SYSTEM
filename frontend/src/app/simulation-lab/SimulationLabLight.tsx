@@ -33,10 +33,10 @@ export default function SimulationLabLight() {
             <span className="material-symbols-outlined mr-3" style={{ fontVariationSettings: '"FILL" 1' }}>science</span>
             <span>Simulation Lab</span>
           </a>
-          <a className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-[11px] font-bold hover:bg-surface-variant hover:text-on-surface transition-all" href="/maintenance-hub">
+          <Link className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-[11px] font-bold hover:bg-surface-variant hover:text-on-surface transition-all" href="/maintenance-hub">
             <span className="material-symbols-outlined mr-3">build</span>
             <span>Maintenance Hub</span>
-          </a>
+          </Link>
         </div>
         <div className="mt-auto pt-4 border-t border-outline-variant">
           <button className="w-full mb-4 bg-primary text-on-primary font-mono text-[11px] font-bold py-3 rounded hover:bg-primary-fixed-variant transition-colors">

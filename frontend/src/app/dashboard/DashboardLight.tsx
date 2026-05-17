@@ -52,13 +52,13 @@ export default function DashboardLight() {
             <span className="material-symbols-outlined">science</span>
             <span>Simulation Lab</span>
           </Link>
-          <a
+          <Link
             className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-xs hover:bg-surface-variant hover:text-on-surface transition-all"
             href="/maintenance-hub"
           >
             <span className="material-symbols-outlined">build</span>
             <span>Maintenance Hub</span>
-          </a>
+          </Link>
         </div>
         <div className="mt-auto pt-4 border-t border-outline-variant">
           <button className="w-full mb-4 bg-primary text-on-primary font-mono text-xs font-bold py-3 rounded hover:bg-on-primary-fixed-variant transition-colors">

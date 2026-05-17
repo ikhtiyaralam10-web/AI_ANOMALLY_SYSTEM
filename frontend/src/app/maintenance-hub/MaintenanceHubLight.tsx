@@ -33,10 +33,10 @@ export default function MaintenanceHubLight() {
             <span className="material-symbols-outlined mr-3">science</span>
             <span>Simulation Lab</span>
           </Link>
-          <a className="flex items-center space-x-3 p-3 rounded text-primary bg-primary-container/30 border-l-2 border-primary font-bold font-mono text-[11px] scale-95 duration-100" href="/maintenance-hub">
+          <Link className="flex items-center space-x-3 p-3 rounded text-primary bg-primary-container/30 border-l-2 border-primary font-bold font-mono text-[11px] scale-95 duration-100" href="/maintenance-hub">
             <span className="material-symbols-outlined mr-3">build</span>
             <span>Maintenance Hub</span>
-          </a>
+          </Link>
         </div>
         <div className="mt-auto pt-4 border-t border-outline-variant">
           <button className="w-full mb-4 bg-primary text-on-primary font-mono text-[11px] font-bold py-3 rounded hover:bg-primary-fixed-variant transition-colors">
@@ -105,7 +105,7 @@ export default function MaintenanceHubLight() {
       </header>
 
       {/* Main Content Area */}
-      <main className="ml-[15%] pt-20 min-h-screen w-full flex-1 p-4 md:p-8 overflow-y-auto grid grid-cols-12 gap-4 relative">
+      <main className="ml-[15%] pt-20 md:pt-24 min-h-screen w-full flex-1 px-4 pb-4 md:px-8 md:pb-8 overflow-y-auto grid grid-cols-12 gap-4 relative">
         <style>{`
           .critical-pulse { animation: pulse-critical-light 2s infinite; }
           @keyframes pulse-critical-light {

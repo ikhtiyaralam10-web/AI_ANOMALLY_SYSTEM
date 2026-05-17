@@ -52,13 +52,13 @@ export default function DashboardDark() {
             <span className="material-symbols-outlined">science</span>
             <span>Simulation Lab</span>
           </Link>
-          <a
+          <Link
             className="flex items-center space-x-3 p-3 rounded text-on-surface-variant font-medium font-mono text-xs hover:bg-surface-variant/20 hover:text-primary transition-all"
             href="/maintenance-hub"
           >
             <span className="material-symbols-outlined">build</span>
             <span>Maintenance Hub</span>
-          </a>
+          </Link>
         </div>
         <div className="mt-auto pt-4 border-t border-outline-variant/10">
           <button className="w-full mb-4 bg-[#64ffda]/10 border border-[#64ffda]/50 text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] font-mono text-xs py-3 rounded hover:bg-[#64ffda]/20 transition-colors font-bold tracking-widest shadow-[0_0_8px_rgba(100,255,218,0.15)]">

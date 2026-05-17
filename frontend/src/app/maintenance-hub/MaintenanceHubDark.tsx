@@ -33,10 +33,10 @@ export default function MaintenanceHubDark() {
             <span className="material-symbols-outlined">science</span>
             <span>Simulation Lab</span>
           </Link>
-          <a className="flex items-center space-x-3 p-3 rounded text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] bg-[#64ffda]/10 border-l-[3px] border-[#00f0ff] shadow-[inset_4px_0_15px_-4px_rgba(0,240,255,0.4)] font-bold font-mono text-[11px] scale-95 duration-100" href="/maintenance-hub">
+          <Link className="flex items-center space-x-3 p-3 rounded text-[#64ffda] drop-shadow-[0_0_4px_rgba(100,255,218,0.4)] bg-[#64ffda]/10 border-l-[3px] border-[#00f0ff] shadow-[inset_4px_0_15px_-4px_rgba(0,240,255,0.4)] font-bold font-mono text-[11px] scale-95 duration-100" href="/maintenance-hub">
             <span className="material-symbols-outlined" style={{ fontVariationSettings: '"FILL" 1' }}>build</span>
             <span>Maintenance Hub</span>
-          </a>
+          </Link>
         </div>
         <div className="mt-auto pt-4 border-t border-outline-variant/10">
           <button className="w-full mb-4 bg-[#64ffda] text-on-primary-fixed font-mono text-[11px] font-bold py-3 rounded hover:bg-primary transition-colors shadow-[0_0_20px_rgba(0,240,255,0.2)]">
@@ -103,7 +103,7 @@ export default function MaintenanceHubDark() {
       </header>
 
       {/* Main Content Area */}
-      <main className="ml-[15%] pt-20 min-h-screen w-full flex-1 p-4 md:p-8 overflow-y-auto grid grid-cols-12 gap-4 relative">
+      <main className="ml-[15%] pt-20 md:pt-24 min-h-screen w-full flex-1 px-4 pb-4 md:px-8 md:pb-8 overflow-y-auto grid grid-cols-12 gap-4 relative">
         <style>{`
           .neon-green-glow { box-shadow: inset 0 0 10px rgba(100, 255, 218, 0.2), 0 0 15px rgba(100, 255, 218, 0.1); }
           .text-glow { text-shadow: 0 0 10px rgba(100, 255, 218, 0.6); }
